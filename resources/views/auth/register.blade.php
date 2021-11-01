@@ -15,19 +15,34 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-jet-label for="email" value="{{ __('Phone') }}" />
+                <x-jet-input id="email" class="block mt-1 w-full" type="text" name="phone" :value="old('email')" required />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                <x-jet-label for="password" value="{{ __('Local Government') }}" />
+                <select id="password" class="block mt-1 w-full border-purple-500 focus:border-purple-800 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" name="lga" required >
+                <option>Local Gvernment</option>
+                @foreach($lgas as $lga)
+                    <option value="{{$lga->id}}">{{$lga->name}}</option>
+                @endforeach
+                </select>
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                <x-jet-label for="password" value="{{ __('Ward') }}" />
+                <select id="password" class="block mt-1 w-full border-purple-500 focus:border-purple-800 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" name="ward" required >
+                <option>Ward</option>
+                </select>
             </div>
+
+            <div class="mt-4">
+                <x-jet-label for="password" value="{{ __('Polling Unit') }}" />
+                <select id="password" class="block mt-1 w-full border-purple-500 focus:border-purple-800 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" name="polling_unit" required >
+                <option>Poling Unit</option>
+                </select>
+            </div>
+
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">

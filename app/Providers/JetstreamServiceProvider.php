@@ -11,6 +11,8 @@ use App\Actions\Jetstream\RemoveTeamMember;
 use App\Actions\Jetstream\UpdateTeamName;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
+use Laravel\Fortify\Fortify;
+use App\Models\Lga;
 
 class JetstreamServiceProvider extends ServiceProvider
 {
@@ -32,7 +34,6 @@ class JetstreamServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->configurePermissions();
-
         Jetstream::createTeamsUsing(CreateTeam::class);
         Jetstream::updateTeamNamesUsing(UpdateTeamName::class);
         Jetstream::addTeamMembersUsing(AddTeamMember::class);
@@ -40,6 +41,19 @@ class JetstreamServiceProvider extends ServiceProvider
         Jetstream::removeTeamMembersUsing(RemoveTeamMember::class);
         Jetstream::deleteTeamsUsing(DeleteTeam::class);
         Jetstream::deleteUsersUsing(DeleteUser::class);
+
+        Fortify::registerView(function () {
+            return view('auth.register',['lgas'=>Lga::all()]);
+        });
+
+        Fortify::authenticateUsing(function (Request $request) {
+            $user = User::where('email', $request->email)->first();
+    
+            if ($user &&
+                Hash::check($request->password, $user->password)) {
+                return $user;
+            }
+        });
     }
 
     /**

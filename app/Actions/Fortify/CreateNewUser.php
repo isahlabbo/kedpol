@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
+use App\Models\PollingUnit;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -22,19 +23,26 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input)
     {
+        
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => $this->passwordRules(),
+            'phone' => ['required', 'string', 'max:15', 'unique:users'],
+            'polling_unit' => ['required'],
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
         ])->validate();
+
+       
 
         return DB::transaction(function () use ($input) {
             return tap(User::create([
                 'name' => $input['name'],
-                'email' => $input['email'],
-                'password' => Hash::make($input['password']),
+                'phone' => $input['phone'],
+                'polling_unit_id' => $input['polling_unit'],
             ]), function (User $user) {
+                $user->update([
+                    'password' => Hash::make($user->pollingUnit->getNewMemberCode()),
+                    'email' => $user->pollingUnit->getNewMemberCode().'@kedpol.com',
+                    ]);
                 $this->createTeam($user);
             });
         });

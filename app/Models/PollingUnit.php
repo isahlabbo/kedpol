@@ -22,7 +22,7 @@ class PollingUnit extends BaseModel
     	$code = $this->ward->lga->code
                 .$this->ward->code
                 .$this->code
-                .$this->formatCount(count($this->members)+1);
+                .$this->formatCount(count($this->users)+1);
         return $code;
     }
         
