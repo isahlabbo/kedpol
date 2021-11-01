@@ -42,6 +42,7 @@ class CreateNewUser implements CreatesNewUsers
                 $user->update([
                     'password' => Hash::make($user->pollingUnit->getNewMemberCode()),
                     'email' => $user->pollingUnit->getNewMemberCode().'@kedpol.com',
+                    'code' => $user->pollingUnit->getNewMemberCode(),
                     ]);
                 $this->createTeam($user);
             });
