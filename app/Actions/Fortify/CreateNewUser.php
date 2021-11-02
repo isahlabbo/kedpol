@@ -27,6 +27,7 @@ class CreateNewUser implements CreatesNewUsers
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:15', 'unique:users'],
+            'nin' => ['required', 'string', 'max:15', 'unique:users'],
             'polling_unit' => ['required'],
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
         ])->validate();
@@ -38,10 +39,11 @@ class CreateNewUser implements CreatesNewUsers
                 'name' => $input['name'],
                 'phone' => $input['phone'],
                 'polling_unit_id' => $input['polling_unit'],
+                'nin' => $input['nin'],
+                'password' => Hash::make($input['nin']),
+                'email' => $input['nin'].'@kedpol.com',
             ]), function (User $user) {
                 $user->update([
-                    'password' => Hash::make($user->pollingUnit->getNewMemberCode()),
-                    'email' => $user->pollingUnit->getNewMemberCode().'@kedpol.com',
                     'code' => $user->pollingUnit->getNewMemberCode(),
                     ]);
                 $this->createTeam($user);

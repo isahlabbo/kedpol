@@ -50,13 +50,18 @@ class JetstreamServiceProvider extends ServiceProvider
         });
 
         Fortify::authenticateUsing(function (Request $request) {
-            $request->email = $request->code."@kedpol.com";
-            $request->password = $request->code;
-            $user = User::where('email', $request->email)->first();
+           
+            $user = User::where('email', $request->email = $request->nin."@kedpol.com")->first();
            
             if ($user &&
-                Hash::check($request->password, $user->password)) {
+                Hash::check($request->nin, $user->password)) {
                 return $user;
+            }else{
+                $user = User::where('phone', $request->nin)->first();
+                if ($user &&
+                    Hash::check($user->nin, $user->password)) {
+                    return $user;
+                }
             }
         });
     }

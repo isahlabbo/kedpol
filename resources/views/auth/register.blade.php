@@ -23,6 +23,11 @@
             </div>
 
             <div class="mt-4">
+                <x-jet-label for="email" value="{{ __('NIN') }}" />
+                <x-jet-input id="email" class="block mt-1 w-full" type="text" name="nin" :value="old('nin')" required />
+            </div>
+
+            <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Local Government') }}" />
                 <select id="password" class="block mt-1 w-full border-purple-500 focus:border-purple-800 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" name="lga" required >
                 <option>Local Gvernment</option>
