@@ -47,6 +47,7 @@ class CreateNewUser implements CreatesNewUsers
                     'code' => $user->pollingUnit->getNewMemberCode(),
                     ]);
                 $this->createTeam($user);
+                $user->userRoles()->create(['role_id'=>5]);
             });
         });
     }

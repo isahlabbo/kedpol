@@ -7,6 +7,9 @@ use App\Models\Lga;
 use App\Services\State\Aliero;
 use App\Services\State\Arewa;
 use App\Services\State\Argungu;
+use App\Services\State\Augie;
+use App\Services\State\Bagudo;
+use App\Services\State\BirninKebbi;
 
 class WardPollingUnit extends Seeder
 {
@@ -15,7 +18,7 @@ class WardPollingUnit extends Seeder
      *
      * @return void
      */
-    use Aliero,Arewa,Argungu;
+    use Aliero,Arewa,Argungu, Augie, Bagudo, BirninKebbi;
 
     public function formatCode($code, $step)
     {
@@ -44,43 +47,23 @@ class WardPollingUnit extends Seeder
             $wardCode = 1;
             switch ($lga) {
                 case 'Aliero':
-                    foreach ($this->alieroWards()['wards'] as $ward) {
-                        // create wards with $ward['name'] as name
-                        $newWard = $newLga->wards()->firstOrCreate(['name'=>$ward['name'],'code'=>$this->formatCode($wardCode,1)]);
-                        $unitCode = 1;
-                        foreach ($ward['units'] as $key => $value) {
-                            // create unit with $unit['code'] as code and $unit['name'] as name of the unit
-                            $newWard->pollingUnits()->firstOrCreate(['name'=>$value,'code'=>$this->formatCode($unitCode,2)]);
-                            $unitCode++;
-                        }
-                        $wardCode++;
-                    }
+                        $this->registerAlieroWardsAndTheirPollingUnits($newLga, $wardCode);
                     break;
                     case 'Arewa':
-                    foreach ($this->alieroWards()['wards'] as $ward) {
-                        // create wards with $ward['name'] as name
-                        $newWard = $newLga->wards()->firstOrCreate(['name'=>$ward['name'],'code'=>$this->formatCode($wardCode,1)]);
-                        $unitCode = 1;
-                        foreach ($ward['units'] as $key => $value) {
-                            // create unit with $unit['code'] as code and $unit['name'] as name of the unit
-                            $newWard->pollingUnits()->firstOrCreate(['name'=>$value,'code'=>$this->formatCode($unitCode,2)]);
-                            $unitCode++;
-                        }
-                        $wardCode++;
-                    }
+                    break;
+                        $this->registerArewaWardsAndTheirPollingUnits($newLga, $wardCode);
                     break;
                     case 'Argungu':
-                    foreach ($this->argunguWards()['wards'] as $ward) {
-                        // create wards with $ward['name'] as name
-                        $newWard = $newLga->wards()->firstOrCreate(['name'=>$ward['name'],'code'=>$this->formatCode($wardCode,1)]);
-                        $unitCode = 1;
-                        foreach ($ward['units'] as $key => $value) {
-                            // create unit with $unit['code'] as code and $unit['name'] as name of the unit
-                            $newWard->pollingUnits()->firstOrCreate(['name'=>$value,'code'=>$this->formatCode($unitCode,2)]);
-                            $unitCode++;
-                        }
-                        $wardCode++;
-                    }
+                        $this->registerArgunguWardsAndTheirPollingUnits($newLga, $wardCode);
+                    break;
+                    case 'Augie':
+                        $this->registerAugieWardsAndTheirPollingUnits($newLga, $wardCode);
+                    break;
+                    case 'Bagudo':
+                        $this->registerBagudoWardsAndTheirPollingUnits($newLga, $wardCode);
+                    break;
+                    case 'Birnin Kebbi':
+                        $this->registerBirninKebbiWardsAndTheirPollingUnits($newLga, $wardCode);
                     break;
                 default:
                     # code...
@@ -97,6 +80,9 @@ class WardPollingUnit extends Seeder
             'Aliero',
             'Arewa',
             'Argungu',
+            'Augie',
+            'Bagudo',
+            'Birnin Kebbi',
         ];
     }
 }

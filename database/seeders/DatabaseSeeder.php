@@ -14,5 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(WardPollingUnit::class);
+        $this->call(AdminSeeder::class);
+        $this->call(RoleTableSeeder::class);
     }
 }

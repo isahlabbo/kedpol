@@ -8,7 +8,7 @@ $(document).ready(function(){
                dataType: 'json',
                success: function(data){
                     $('select[name="polling_unit"]').empty();
-                    $('select[name="ward"]').append('<option value="">Select Polling Unit</option>');
+                    $('select[name="polling_unit"]').append('<option value="">Select Polling Unit</option>');
                     $.each(data, function(key, value){
                         $('select[name="polling_unit"]').append('<option value="'+key+'">'+ value +'</option>');
                     });

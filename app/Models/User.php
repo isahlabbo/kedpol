@@ -63,4 +63,18 @@ class User extends Authenticatable
     {
         return $this->belongsTo(PollingUnit::class);
     }
+
+    public function userRoles()
+    {
+        return $this->hasMany(UserRole::class);
+    }
+
+    public function isAdmin()
+    {
+        $flag = null;
+        foreach ($this->userRoles->where('role_id',1) as $userRole) {
+            $flag = true;
+        }
+        return $flag;
+    }
 }
