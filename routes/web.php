@@ -26,3 +26,52 @@ Route::prefix('ajax')
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+Route::prefix('goverment')
+   ->middleware(['auth:sanctum', 'verified'])
+   ->name('government.')
+   ->namespace('Government')
+   ->group(function() {
+    Route::get('/', 'GovernmentController@index')->name('index');
+    // lga routs
+
+    Route::prefix('lga')
+   ->name('lga.')
+   ->group(function() {
+      Route::get('/{lgaId}', 'LgaController@index')->name('index');
+    //   lga/wards routes
+
+        Route::prefix('ward')
+        ->name('ward.')
+        ->group(function() {
+            Route::get('/{wardId}', 'WardController@index')->name('index');
+            //   lga/ward polling unit routes
+
+            Route::prefix('polling-unit')
+            ->name('polling-unit.')
+            ->group(function() {
+                Route::get('/{pollingUnitId}', 'PollingUnitController@index')->name('index');
+                // polling unit member controller
+
+                Route::prefix('{pollingUnitId}/member')
+                ->name('member.')
+                ->group(function() {
+                    Route::get('/create', 'PollingUnitMemberController@create')->name('create');
+                    Route::get('/{memberId}/edit', 'PollingUnitMemberController@edit')->name('edit');
+                    Route::post('/register', 'PollingUnitMemberController@register')->name('register');
+                    Route::post('/{memberId}/update', 'PollingUnitMemberController@update')->name('update');
+                    
+                });
+            });
+        });
+   });
+});
+
+Route::prefix('system')
+   ->middleware(['auth:sanctum', 'verified'])
+   ->name('system.')
+   ->namespace('System')
+   ->group(function() {
+    Route::get('/', 'GovernmentController@index')->name('index');
+});

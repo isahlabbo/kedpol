@@ -39,4 +39,9 @@ class PollingUnit extends BaseModel
         }
         return $count;
     }
+
+    public function slug()
+    {
+        return strtolower(str_replace(' ','-',$this->name));
+    }
 }

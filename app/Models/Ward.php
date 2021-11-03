@@ -15,4 +15,9 @@ class Ward extends BaseModel
     {
     	return $this->belongsTo(Lga::class);
     }
+
+    public function slug()
+    {
+        return strtolower(str_replace(' ','-',$this->name));
+    }
 }

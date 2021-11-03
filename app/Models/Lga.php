@@ -10,4 +10,9 @@ class Lga extends BaseModel
     {
     	return $this->hasMany(Ward::class);
     }
+
+    public function slug()
+    {
+        return strtolower(str_replace(' ','-',$this->name));
+    }
 }

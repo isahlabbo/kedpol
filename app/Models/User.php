@@ -77,4 +77,13 @@ class User extends Authenticatable
         }
         return $flag;
     }
+
+    public function createTeam()
+    {
+        $this->ownedTeams()->save(Team::forceCreate([
+            'user_id' => $this->id,
+            'name' => explode(' ', $this->name, 2)[0]."'s Team",
+            'personal_team' => true,
+        ]));
+    }
 }

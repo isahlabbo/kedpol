@@ -47,24 +47,29 @@ class WardPollingUnit extends Seeder
             $wardCode = 1;
             switch ($lga) {
                 case 'Aliero':
-                        $this->registerAlieroWardsAndTheirPollingUnits($newLga, $wardCode);
-                    break;
-                    case 'Arewa':
-                    break;
-                        $this->registerArewaWardsAndTheirPollingUnits($newLga, $wardCode);
-                    break;
-                    case 'Argungu':
-                        $this->registerArgunguWardsAndTheirPollingUnits($newLga, $wardCode);
-                    break;
-                    case 'Augie':
-                        $this->registerAugieWardsAndTheirPollingUnits($newLga, $wardCode);
-                    break;
-                    case 'Bagudo':
-                        $this->registerBagudoWardsAndTheirPollingUnits($newLga, $wardCode);
-                    break;
-                    case 'Birnin Kebbi':
-                        $this->registerBirninKebbiWardsAndTheirPollingUnits($newLga, $wardCode);
-                    break;
+                    $this->registerAlieroWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Arewa':
+                    $this->registerArewaWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Argungu':
+                    $this->registerArgunguWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Augie':
+                    $this->registerAugieWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Bagudo':
+                    $this->registerBagudoWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Birnin Kebbi':
+                    $this->registerBirninKebbiWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+                
                 default:
                     # code...
                     break;
