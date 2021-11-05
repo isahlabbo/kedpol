@@ -73,7 +73,6 @@ class PollingUnitMemberController extends Controller
         }
 
         Validator::make($input, $roles)->validate();
-
         $user->update([
                 'name' => $input['name'],
                 'phone' => $input['phone'],

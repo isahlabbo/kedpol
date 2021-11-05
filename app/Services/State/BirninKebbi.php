@@ -225,24 +225,48 @@ public function birninKebbiWards()
                         "TARASA M.P.S II (TARASA G/UMARU LIMAN)",
                         "TARASA M.P.S III(TARASA G/UMARU)",
                         "ILOLA G/M/TEUNIT",
-                        "ILOLA TVC ILOLA GWARGWABE","ILOLA G/M/FARI",
+                        "ILOLA TVC ILOLA GWARGWABE",
+                        "ILOLA G/M/FARI",
                         "BADARIYA BYE POLICE OUT FORCE (BADARIYA FILIN MASALLACI)",
-                        "BADARIYA G/UMARU SAJE","WURO MALIKI G/AMIRU","UNG. KAYI G/HAKIMI","UNG. GERO G/HAKIMI",
-                        "DUKKUWO G/ HAKIMI DUKKUWO","TARASA DISPENSARY TARASA","KOLA MPS",
-                        "BAYAN KATANGA G/ABUBAKAR KOLA","WATER TANK KOFAR YAMMA KOLA","G.D.SS KOLA",
-                        "WURO NORU NOMADIC M.P.S BADARIYA","GREATER HIGH SCHOOL KWANAR U.S M.T.N MAST",
-                        "ABUBAKAR NADANIYA M.P.S BADARIYA","G.D.S.S NADANIYA BADARIYA","PRIMARY HEALTH CENTRE",
-                        "OPPOSITE MOPOL TRANSFORMER BADARIYA","KWANAR YAN TILLI","ABI SEC. SCHOOL BADARIYA",
-                        "KWANAR GIDAN RUWA DIGGI BADARIYA","ROYAL LIVESTOCK TRAINING CENTRE KWANAR ALI BAGUDO",
-                        "KWANAR MASALLACIN KHALIFA NAYALWA","WATER TANK KWANAR YAN JAKKAI",
-                        "KWANAR MALAM NA GUJIYA BADARIYA","DISPENSARY WURO MALIKI"
+                        "BADARIYA G/UMARU SAJE",
+                        "WURO MALIKI G/AMIRU",
+                        "UNG. KAYI G/HAKIMI",
+                        "UNG. GERO G/HAKIMI",
+                        "DUKKUWO G/ HAKIMI DUKKUWO",
+                        "TARASA DISPENSARY TARASA",
+                        "KOLA MPS",
+                        "BAYAN KATANGA G/ABUBAKAR KOLA",
+                        "WATER TANK KOFAR YAMMA KOLA",
+                        "G.D.SS KOLA",
+                        "WURO NORU NOMADIC M.P.S BADARIYA",
+                        "GREATER HIGH SCHOOL KWANAR U.S M.T.N MAST",
+                        "ABUBAKAR NADANIYA M.P.S BADARIYA",
+                        "G.D.S.S NADANIYA BADARIYA",
+                        "PRIMARY HEALTH CENTRE",
+                        "OPPOSITE MOPOL TRANSFORMER BADARIYA",
+                        "KWANAR YAN TILLI",
+                        "ABI SEC. SCHOOL BADARIYA",
+                        "KWANAR GIDAN RUWA DIGGI BADARIYA",
+                        "ROYAL LIVESTOCK TRAINING CENTRE KWANAR ALI BAGUDO",
+                        "KWANAR MASALLACIN KHALIFA NAYALWA",
+                        "WATER TANK KWANAR YAN JAKKAI",
+                        "KWANAR MALAM NA GUJIYA BADARIYA",
+                        "DISPENSARY WURO MALIKI"
                 ]
             ],
             [
                 'name'=>'MAKERA',
                 'units'=>[
-                        "TARASA M.P.S I (TARASA G/LIMAN TARASA)",
-                        "TARASA M.P.S II (TARASA G/UMARU LIMAN)","TARASA M.P.S III(TARASA G/UMARU)","ILOLA G/M/TEUNIT","ILOLA TVC ILOLA GWARGWABE","ILOLA G/M/FARI","BADARIYA BYE POLICE OUT FORCE (BADARIYA FILIN MASALLACI)","BADARIYA G/UMARU SAJE","WURO MALIKI G/AMIRU","UNG. KAYI G/HAKIMI","UNG. GERO G/HAKIMI","DUKKUWO G/ HAKIMI DUKKUWO","TARASA DISPENSARY TARASA","KOLA MPS","BAYAN KATANGA G/ABUBAKAR KOLA","WATER TANK KOFAR YAMMA KOLA","G.D.SS KOLA","WURO NORU NOMADIC M.P.S BADARIYA","GREATER HIGH SCHOOL KWANAR U.S M.T.N MAST","ABUBAKAR NADANIYA M.P.S BADARIYA","G.D.S.S NADANIYA BADARIYA","PRIMARY HEALTH CENTRE","OPPOSITE MOPOL TRANSFORMER BADARIYA","KWANAR YAN TILLI","ABI SEC. SCHOOL BADARIYA","KWANAR GIDAN RUWA DIGGI BADARIYA","ROYAL LIVESTOCK TRAINING CENTRE KWANAR ALI BAGUDO","KWANAR MASALLACIN KHALIFA NAYALWA","WATER TANK KWANAR YAN JAKKAI","KWANAR MALAM NA GUJIYA BADARIYA","DISPENSARY WURO MALIKI"
+                        "MAKERA SECRETARIAT (MAKERA G/LIMAN)",
+                        "MAKERA DISPENSARY(MAKERA KUDU GARKAR HABIBU)",
+                        "MAKERA VETRENARY HOSPITAL (MAKERA YAMMA G/MUSA RIJIYA)",
+                        "UNG. SANI G/HAKIMI",
+                        "JAWO G/HAKIMI JAWO",
+                        "TUNARI G/HAKIMIN TUNARI",
+                        "DANYAKU G/HAKIMI",
+                        "UNG. DOGO G/HAKIM UNG. DOGO",
+                        "LIMANCHI G/NAMATA MAKERA",
+                        "G/GUNABI MAKERA YAMMA"
                 ]
             ],
             [
@@ -284,53 +308,192 @@ public function birninKebbiWards()
             [
                 'name'=>'GWADANGWAJE',
                 'units'=>[
-                        
+                        "GWADANGAJI M.P.S. GWANDANGAJI",
+                        "BANIGATARI/YAR MAMARI G/HAKIMI YAR MAMARI",
+                        "YAWURAWA G/SABO WAKILI",
+                        "BUSAWA G/MAIRIGA WAKILI",
+                        "BANIGATARI G/MAGAJI",
+                        "KABAWA MASALLACI, KABAWA",
+                        "BUSAWA KASUWAR DAJI BUSAWA",
+                        "KAWARA G/UBANDAWAKI KAWARA",
+                        "GAZO G/DIKKO GAZO",
+                        "KASUWAR DAJI, GWADANGAJI",
+                        "GWADANGAJI MASALLACI (DAN - FILI)",
+                        "GWADANGAJI MPS NURSERY SESSION",
+                        "PEARL HARBOUR MODEL ACADEMY GWADANGAJI",
+                        "GWADANGAJI TASHA",
+                        "ALIERO QUARTERS GIDAN RUWA",
+                        "ALEIRO QUARTERS MPS",
+                        "DANMANYA ANIMAL CHEMIST",
+                        "GIDAN RUWA",
+                        "YAWURAWA INJIMIN ZUHURI",
+                        "BUSAWA FILIN SADO BAWA KADE",
+                        "BANI GATARI SHARI'A COURT",
+                        "KABAWA GIDAN RUWA",
+                        "KABAWA KASUWAR GARI",
+                        "KASUWA DAJI DARBEJUN ALA",
+                        "GWADANGAJI MDGS CLINIC"
                 ]
             ],
             [
                 'name'=>'ZAURO',
                 'units'=>[
-                        
+                        "TUNGAR BUZU G/H/TUNGAR BUZU",
+                        "SABON GARI M.P.S. S/GARI ZAURO",
+                        "UNG. ZABARMAWA G/H/ UNG. ZABARMAWA",
+                        "HAMMARI TVC HAMMARI",
+                        "RIJIR NAYE G/UMARU DALHATU",
+                        "ZAURO G/DIKKO N. ZAURO",
+                        "GANDEWO G/ALHAJI NA ALLAH G.",
+                        "BAGGO G/ALH. JABBO",
+                        "JAGARAWO G/ALH. ANGO",
+                        "ZAURO G/DANTSINO",
+                        "ZAURO G/ DIKKO",
+                        "SABON GARI ZAURO MPS SELF-HELP PROJECT",
+                        "ZAURO HEALTH FACILITY, ZAURO",
+                        "YAGIDARE FILIN GOJE ZAURO",
+                        "RIJIYAR SHEHI ALI ZAURO",
+                        "RIJIYAR RAFI BUJE ZAURO",
+                        "GANDEWO FILIN MONDAY NAKWALBA ZAURO",
+                        "ILLELA JAGARAWO" 
                 ]
             ],
             [
                 'name'=>'GAWASU',
                 'units'=>[
-                        
+                        "GAWASSU MAKARANTA",
+                        "AKWARA G/MAGAJI",
+                        "DAMANA G/DIKKO DAMANA",
+                        "GORIYO G/HAKIMIN GORIYO",
+                        "UNGUWAR MAIFULANI GARKAR WAKILI",
+                        "GAINAKO G/HAKIMIN GAINAKO",
+                        "GURAGURI G/MAIYAKI",
+                        "LITTIGAWO G/DIKKO",
+                        "TAKALAFIYA G/HAKIMI",
+                        "UNG. NASAMU G/DIKKO",
+                        "UNG. SARKI G/MARAFA",
+                        "J.S.S GAWASSU	",
+                        "SHIYAR FULANI G/MANU DAMANA	",
+                        "RIJIYAR ALHAJIKAKALE G/DAN BADI DAMANA"
                 ]
             ],
             [
                 'name'=>'KARDI YAMMA',
                 'units'=>[
-                        
+                        "KARDI G/SARKIN KABI",
+                        "KARDI G/DANSABON GARI",
+                        "KARDI G/SARKIN BUSSA",
+                        "KARDI G/ SARKIN HAUSAWA",
+                        "KARDI KASUWAR DAJI",
+                        "YAMAMA G/NA'IBIN YAMAMA",
+                        "HARASAWA MPS",
+                        "YAMAMA G/HAKIMI JANBAKI",
+                        "YAMAMA G/HAKIMIN UNG. NARBA",
+                        "SABON GARIN GORU G/HAKIMI",
+                        "YAMAMA G/H/ UNG. NAINU",
+                        "NUFAWA G/MAGAJIN NUFAWA",
+                        "NUFAWA G/DIKKON MATANKARI",
+                        "NUFAWA G/HAKIMIN WASADA",
+                        "NUFAWA BAKIN KASUWA KARDI",
+                        "GIDAN SARKIN KASUWA",
+                        "HAJIYA MA'INNA MPS",
+                        "ALIYU MUSA MPS KARDI",
+                        "SHIYAR MAKERA KARDI",
+                        "KARDI SABONGARI",
+                        "KARDI SERVICE CENTRE",
+                        "MATANKARI PRI. HEALTH CENTRE MATANKARI",
+                        "NUFAWA PRI. HEALTH CENTRE NUFAWA",
+                        "YAMAMA PRI. HEALTH CENTRE YAMAMA",
+                        "UNGUWAR NOMA G/HAKIMI",
+                        "HARASAWA DISPENSARY"
                 ]
             ],
 
             [
                 'name'=>'LAGGA',
                 'units'=>[
-                        
+                        "LAGGA G/HAKIMIN LAGGA",
+                        "BAME FADAMA G/H/BAME FADAMA",
+                        "BAME RUNJI G/H/BAME RUNJI",
+                        "JANZOMO G/KAKALE",
+                        "JANZOMO BAKIN KASUWA JANZOMO",
+                        "RANDALI G/MARAFA",
+                        "RANDALI G/ALH. SHEHU",
+                        "LAGGA G/ADAMU WAKILI",
+                        "BAME MAIRUWA G/MALAM SALIHU",
+                        "G/ ADAMU WAKILI",
+                        "G. MARAFA (DAN-FILI)",
+                        "JANZOMO MPS"
                 ]
             ],
 
             [
                 'name'=>'GULUMBE',
                 'units'=>[
-                        
+                        "GULUMBE G/DANGALADIMA",
+                        "GULUMBE KOFAR GWANKI",
+                        "GULUMBE BAKIN KASUWA GULUMBE",
+                        "BAWADA G/MALAM AMINU BAWADA",
+                        "UNG. ZABARMAWA G/DALHATU",
+                        "FILLINGO G/H/ILLELAR FILLINGO",
+                        "ASARARA G/HAKIMI ASARARA",
+                        "G/KWANGI",
+                        "WAZIRI ABUBAKAR MPS GULUMBE",
+                        "SHIYAR GINGA GULUMBE",
+                        "KAURAN GWANKI GULUMBE",
+                        "KAURAN GWANKI FILLIN YAR KYARA GULUMBE"
                 ]
             ],
             
             [
                 'name'=>'AMBURSA',
                 'units'=>[
-                        
+                        "AMBURSA G/HAKIMIN DANGALADIMA",
+                        "ARBIN LADAN G/HAKIMIN ARBIN LADAN",
+                        "AMBURSA G/H/SARKIN HATSI",
+                        "WANGARAWA G/H/WANGARAWA",
+                        "AMBURSA M.P.S. AMBURSA",
+                        "KWADDAGA G/HAKIMIN KWADDAGA",
+                        "KASUWA KARAMA BAKIN KASUWA KARAMA",
+                        "AMBURSA G/MIJIN DIYA",
+                        "AMBURSA G/SANDA ROGO",
+                        "AMBURSA G/SHEHU ZANGO",
+                        "NUFUWA G / MAINU FAWA",
+                        "G/ MAI NUFAWA",
+                        "MUHAMMAD SULEMAN AMBURSA MPS",
+                        "MUHAMMAD SULEMAN AMBURSA MPS ADMIN BLOCK",
+                        "MUHAMMAD SULEMAN AMBURSA MPS",
+                        "SABON BIRNI G/MAMMAN DIKKO",
+                        "BAYERO ALIYU MPS AMBURSA",
+                        "FILIN SHEHU AMBURSA",
+                        "G/MAMMAN NA DIYA",
+                        "MAKERAN FARI AMBURSA",
+                        "FILIN DAN GANDU AMBURSA",
+                        "RIJIYA TSOHUWA",
+                        "FILIN TA JODI",
+                        "TAKALAU G/GARBA MAISHINKO"
                 ]
             ],
 
             [
                 'name'=>'UJARIYO',
                 'units'=>[
-                        
+                        "UJARIYO G/HAKIMIN UJARIYO",
+                        "ASARARA G/H/ASARARA",
+                        "UNG. SARSAN G/H UNG. SARSAN",
+                        "SARGAGI G/H/SARGAGI",
+                        "JUNJU G/HAKIMIN JUNJU",
+                        "TSAMIYA G/HAKIMIN TSAMIYA",
+                        "UNG. MAGAJI G/HAKIMIN UNG. MAGAJI",
+                        "DAGERE G/HAKIMIN DAGERE",
+                        "TUNGA LANDE G/H/TUNGAR LANDE",
+                        "MOCCIYO G/HAKIMIN MOCCIYO",
+                        "UNG. GANWO G/HAKIMIN UNG. GANWO",
+                        "DANGARSO G/HAKIMIN DANGARSO",
+                        "SARGAGI G. H.",
+                        "M.G.D PRIMAY HEALTH CARE",
+                        "DAGERE PRIMARY HEALTH CENTRE",
+                        "JUNJU M.P.S"
                 ]
             ],
         ]

@@ -15,20 +15,24 @@
                 <table class="table table-fixed">
                 <thead>
                    <tr>
-                       <th class="w-1/2">Local Government Name</th>
+                       <th class="w-1/2">S/N</th>
+                       <th class="w-1/4">Local Government Name</th>
                        <th class="w-1/4">No Of Wards</th>
-                       <th class="w-1/4"></th>
+                       <th class="w-1/4">No Of Polling Units</th>
+                       <th class="w-1/2"></th>
                    </tr>
                 </thead>
                 <tbody>
                     @foreach($lgas as $lga)
                     <tr class="bg-purple-200">
+                        <td>{{$lga->id}}</td>
                         <td>{{$lga->name}}</td>
                         <td>{{count($lga->wards)}}</td>
+                        <td>{{$lga->pollingUnits()}}</td>
                         <td>
                             <a href="{{route('government.lga.index',[$lga->id])}}">
                             <x-jet-button class="ml-4">
-                                {{ __('Review') }}
+                                {{ __('more') }}
                             </x-jet-button>
                             </a>
                         </td>

@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(WardPollingUnit::class);
         $this->call(AdminSeeder::class);
         $this->call(RoleTableSeeder::class);
+        $this->call(FederalConstituencyTableSeeder::class);
+        $this->call(SenetorialZoneTableSeeder::class);
     }
 }

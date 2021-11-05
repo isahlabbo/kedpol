@@ -10,6 +10,17 @@ use App\Services\State\Argungu;
 use App\Services\State\Augie;
 use App\Services\State\Bagudo;
 use App\Services\State\BirninKebbi;
+use App\Services\State\Bunza;
+use App\Services\State\Dandi;
+use App\Services\State\Fakai;
+use App\Services\State\Gwandu;
+use App\Services\State\Jega;
+use App\Services\State\Kalgo;
+use App\Services\State\KokoBesse;
+use App\Services\State\Mayama;
+use App\Services\State\Ngaski;
+use App\Services\State\Sakaba;
+use App\Services\State\Shanga;
 
 class WardPollingUnit extends Seeder
 {
@@ -18,7 +29,7 @@ class WardPollingUnit extends Seeder
      *
      * @return void
      */
-    use Aliero,Arewa,Argungu, Augie, Bagudo, BirninKebbi;
+    use Aliero, Arewa, Argungu, Augie, Bagudo, BirninKebbi ,Bunza, Dandi, Fakai, Gwandu, Jega, Kalgo, KokoBesse, Mayama, Ngaski, Sakaba, Shanga;
 
     public function formatCode($code, $step)
     {
@@ -69,7 +80,51 @@ class WardPollingUnit extends Seeder
                 case 'Birnin Kebbi':
                     $this->registerBirninKebbiWardsAndTheirPollingUnits($newLga, $wardCode);
                 break;
-                
+                case 'Bunza':
+                    $this->registerBunzaWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Dandi':
+                    $this->registerDandiWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Fakai':
+                    $this->registerFakaiWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Gwandu':
+                    $this->registerGwanduWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Jega':
+                    $this->registerJegaWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Kalgo':
+                    $this->registerKalgoWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Koko Besse':
+                    $this->registerKokoBesseWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Maiyama':
+                    $this->registerMayamaWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Ngaski':
+                    $this->registerNgaskiWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Sakaba':
+                    $this->registerSakabaWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Shanga':
+                    $this->registerShangaWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+            
+            
                 default:
                     # code...
                     break;
@@ -88,6 +143,23 @@ class WardPollingUnit extends Seeder
             'Augie',
             'Bagudo',
             'Birnin Kebbi',
+            'Bunza',
+            'Dandi',
+            'Fakai',
+            'Gwandu',
+            'Jega',
+            'Kalgo',
+            'Koko Besse',
+            'Maiyama',
+            'Ngaski',
+            'Sakaba',
+            'Shanga',
+            'Suru',
+            'Wasagu Danko',
+            'Yauri',
+            'Zuru',
+            
+            
         ];
     }
 }
