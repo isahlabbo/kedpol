@@ -14,7 +14,7 @@
     <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
     <x-jet-validation-errors class="mb-4" />
  
-    <form method="POST" action="{{ route('government.lga.ward.polling-unit.member.register',[$pollingUnit->id]) }}">
+    <form method="POST" action="{{ route('senatorial-zone.lga.ward.polling-unit.member.register',[$pollingUnit->id]) }}">
             @csrf
             <div class="mt-4">
                 <x-jet-label for="name" value="{{ __('Name') }}" />

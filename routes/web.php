@@ -28,12 +28,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-Route::prefix('goverment')
+Route::prefix('senatorial-zone')
    ->middleware(['auth:sanctum', 'verified'])
-   ->name('government.')
-   ->namespace('Government')
+   ->name('senatorial-zone.')
+   ->namespace('SenatorialZone')
    ->group(function() {
-    Route::get('/', 'GovernmentController@index')->name('index');
+    Route::get('/', 'SenatorialZoneController@index')->name('index');
     // lga routs
 
     Route::prefix('lga')
@@ -57,6 +57,7 @@ Route::prefix('goverment')
                 Route::prefix('{pollingUnitId}/member')
                 ->name('member.')
                 ->group(function() {
+                    Route::get('/', 'PollingUnitMemberController@index')->name('index');
                     Route::get('/create', 'PollingUnitMemberController@create')->name('create');
                     Route::get('/{memberId}/edit', 'PollingUnitMemberController@edit')->name('edit');
                     Route::post('/register', 'PollingUnitMemberController@register')->name('register');

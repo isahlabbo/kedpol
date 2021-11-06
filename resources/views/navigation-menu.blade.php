@@ -16,18 +16,19 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                     @if(Auth::user()->isAdmin())
-                    <x-jet-nav-link href="{{ route('government.index') }}" :active="request()->routeIs('government.index')">
-                        {{ __('Government') }}
+                    <x-jet-nav-link href="{{ route('senatorial-zone.index') }}" :active="request()->routeIs('senatorial-zone.index')">
+                        {{ __('Senatorial Zones') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('senatorial-zone.index') }}" :active="request()->routeIs('government.index')">
+                        {{ __('Federal Constituencies') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('senatorial-zone.index') }}" :active="request()->routeIs('government.index')">
+                        {{ __('State Constituencies') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Sponsors') }}
+                        {{ __('System') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Agents') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Excos') }}
-                    </x-jet-nav-link>
+                    
                     @endif
                 </div>
             </div>

@@ -4,7 +4,7 @@
     @endsection   
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-purple-800 leading-tight">
-            {{ __('Government') }}
+            {{ __('Kebbi Senatorial Zone') }}
         </h2>
     </x-slot>
 
@@ -16,21 +16,23 @@
                 <thead>
                    <tr>
                        <th class="w-1/2">S/N</th>
-                       <th class="w-1/4">Local Government Name</th>
-                       <th class="w-1/4">No Of Wards</th>
-                       <th class="w-1/4">No Of Polling Units</th>
+                       <th class="w-1/4">Senatorial Zon</th>
+                       <th class="w-1/4">Local governments</th>
+                       <th class="w-1/4">Wards</th>
+                       <th class="w-1/4">Polling Units</th>
                        <th class="w-1/2"></th>
                    </tr>
                 </thead>
                 <tbody>
-                    @foreach($lgas as $lga)
+                    @foreach($zones as $zone)
                     <tr class="bg-purple-200">
-                        <td>{{$lga->id}}</td>
-                        <td>{{$lga->name}}</td>
-                        <td>{{count($lga->wards)}}</td>
-                        <td>{{$lga->pollingUnits()}}</td>
+                        <td>{{$zone->id}}</td>
+                        <td>{{$zone->name}}</td>
+                        <td>{{count($zone->senatorialZoneLgas)}}</td>
+                        <td>{{$zone->wards()}}</td>
+                        <td>{{$zone->pollingUnits()}}</td>
                         <td>
-                            <a href="{{route('government.lga.index',[$lga->id])}}">
+                            <a href="{{route('senatorial-zone.lga.index',[$zone->id])}}">
                             <x-jet-button class="ml-4">
                                 {{ __('more') }}
                             </x-jet-button>

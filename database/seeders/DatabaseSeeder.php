@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(WardPollingUnit::class);
-        $this->call(AdminSeeder::class);
-        $this->call(RoleTableSeeder::class);
-        $this->call(FederalConstituencyTableSeeder::class);
-        $this->call(SenetorialZoneTableSeeder::class);
+        // $this->call(WardPollingUnit::class);
+        // $this->call(AdminSeeder::class);
+        // $this->call(RoleTableSeeder::class);
+        // $this->call(FederalConstituencyTableSeeder::class);
+        $this->call(SenatorialZoneTableSeeder::class);
     }
 }

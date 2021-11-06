@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSenetorialZoneLgasTable extends Migration
+class CreateSenatorialZoneLgasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSenetorialZoneLgasTable extends Migration
      */
     public function up()
     {
-        Schema::create('senetorial_zone_lgas', function (Blueprint $table) {
+        Schema::create('senatorial_zone_lgas', function (Blueprint $table) {
             $table->id();
             $table->integer('lga_id')
             ->unsigned()
@@ -23,7 +23,7 @@ class CreateSenetorialZoneLgasTable extends Migration
             ->on('lgas')
             ->delete('restrict')
             ->update('cascade');
-            $table->integer('senetorial_zone_id')
+            $table->integer('senatorial_zone_id')
             ->unsigned()
             ->nullable()
             ->foreign()
@@ -42,6 +42,6 @@ class CreateSenetorialZoneLgasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('senetorial_zone_lgas');
+        Schema::dropIfExists('senatorial_zone_lgas');
     }
 }

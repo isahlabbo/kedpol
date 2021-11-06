@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Lga;
-use App\Models\SenetorialZone;
+use App\Models\SenatorialZone;
 
-class SenetorialZoneTableSeeder extends Seeder
+class SenatorialZoneTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -33,9 +33,9 @@ class SenetorialZoneTableSeeder extends Seeder
         ];
 
         foreach ($zones as $zone) {
-            $senetorialZone = SenetorialZone::firstOrCreate(['name'=>$zone['name']]);
+            $senatorialZone = SenatorialZone::firstOrCreate(['name'=>$zone['name']]);
             foreach ($zone['lgas'] as $lga) {
-                $senetorialZone->senetorialZoneLgas()->create(['lga_id'=>$this->getThisLga($lga)->id]);
+                $senatorialZone->senatorialZoneLgas()->create(['lga_id'=>$this->getThisLga($lga)->id]);
             }
         }
     }

@@ -17,7 +17,7 @@
                <th class="w-1/4">PHONE</th>
                <th class="w-1/4">NIN</th>
                <th class="w-1/4">
-               <a href="{{route('government.lga.ward.polling-unit.member.create',[$pollingUnit->id])}}"><x-jet-button class="ml-4">
+               <a href="{{route('senatorial-zone.lga.ward.polling-unit.member.create',[$pollingUnit->id])}}"><x-jet-button class="ml-4">
                         {{ __('NEW MEMBER') }}
                     </x-jet-button></th>
            </tr>
@@ -30,7 +30,7 @@
                 <td>{{$member->email}}</td>
                 <td>{{$member->nin}}</td>
                 <td>
-                   <a href="{{ route('government.lga.ward.polling-unit.member.edit',[$pollingUnit->id,$member->id]) }}">
+                   <a href="{{ route('senatorial-zone.lga.ward.polling-unit.member.edit',[$pollingUnit->id,$member->id]) }}">
                     <x-jet-button class="ml-4">
                         {{ __('Edit') }}
                     </x-jet-button>

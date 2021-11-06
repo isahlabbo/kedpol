@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Government;
+namespace App\Http\Controllers\SenatorialZone;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -13,14 +13,20 @@ use Illuminate\Support\Facades\Validator;
 
 class PollingUnitMemberController extends Controller
 {
-    public function create($pollingUnitId)
+
+    public function index($pollingUnitId)
     {
-        return view('government.lga.ward.pollingUnit.member.create',['lgas'=>Lga::all(),'pollingUnit'=>PollingUnit::find($pollingUnitId)]);
+        return view('senatorialZone.lga.ward.pollingUnit.member.index',['pollingUnit'=>PollingUnit::find($pollingUnitId)]);
     }
 
-    public function edit($pollingUnitId,$userId)
+    public function create($pollingUnitId)
     {
-        return view('government.lga.ward.pollingUnit.member.edit',['member'=>User::find($userId)]);
+        return view('senatorialZone.lga.ward.pollingUnit.member.create',['lgas'=>Lga::all(),'pollingUnit'=>PollingUnit::find($pollingUnitId)]);
+    }
+
+    public function edit($userId)
+    {
+        return view('senatorialZone.lga.ward.pollingUnit.member.edit',['member'=>User::find($userId)]);
     }
 
     public function register(Request $request, $pollingUnitId)
@@ -50,7 +56,7 @@ class PollingUnitMemberController extends Controller
             });
         });
 
-        return redirect()->route('government.lga.ward.polling-unit.index',[$pollingUnitId]);
+        return redirect()->route('senatorial-zone.lga.ward.polling-unit.member.index',[$pollingUnitId]);
     }
 
     public function update(Request $request, $pollingUnitId, $memberId)

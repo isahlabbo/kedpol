@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-purple-800 leading-tight">
-            {{ $ward->name }} Ward
+            {{ $ward->name }} WARD
         </h2>
     </x-slot>
 
@@ -12,22 +12,25 @@
         <table class="table table-auto">
         <thead>
            <tr>
-               <th class="w-1/2">Polling Unit Name</th>
-               <th class="w-1/4">No Of Registered Member</th>
-               <th class="w-1/4"></th>
+               <th class="w-1/2">S/N</th>
+               <th class="w-1/2">POLLING UNIT NAME</th>
+               <th class="w-1/4">REGISTERED USERS</th>
            </tr>
         </thead>
         <tbody>
             @foreach($ward->pollingUnits as $pollingUnit)
             <tr class="bg-purple-200">
+                <td>{{$loop->iteration}}</td>
                 <td>{{$pollingUnit->name}}</td>
                 <td>{{count($pollingUnit->users)}}</td>
+                
                 <td>
-                    <a href="{{route('government.lga.ward.polling-unit.index',[$pollingUnit->id])}}">
+                   <a href="{{ route('senatorial-zone.lga.ward.polling-unit.member.index',[$pollingUnit->id]) }}">
                     <x-jet-button class="ml-4">
-                        {{ __('More') }}
+                        {{ __('more') }}
                     </x-jet-button>
                     </a>
+                    
                 </td>
             </tr>
             @endforeach
