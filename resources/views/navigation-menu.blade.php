@@ -19,14 +19,11 @@
                     <x-jet-nav-link href="{{ route('senatorial-zone.index') }}" :active="request()->routeIs('senatorial-zone.index')">
                         {{ __('Senatorial Zones') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('senatorial-zone.index') }}" :active="request()->routeIs('government.index')">
+                    <x-jet-nav-link href="{{ route('federal-constituency.index') }}" :active="request()->routeIs('federal-constituency.index')">
                         {{ __('Federal Constituencies') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('senatorial-zone.index') }}" :active="request()->routeIs('government.index')">
                         {{ __('State Constituencies') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('System') }}
                     </x-jet-nav-link>
                     
                     @endif
