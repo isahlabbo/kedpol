@@ -116,6 +116,40 @@ Route::prefix('federal-constituency')
    });
 });
 
+Route::prefix('state-constituency')
+   ->middleware(['auth:sanctum', 'verified'])
+   ->name('state-constituency.')
+   ->namespace('StateConstituency')
+   ->group(function() {
+    Route::get('/', 'StateConstituencyController@index')->name('index');
+    // lga routs
+
+    Route::prefix('{constituencyId}/ward')
+   ->name('ward.')
+   ->group(function() {
+      Route::get('/', 'WardController@index')->name('index');
+
+      Route::prefix('polling-unit')
+            ->name('polling-unit.')
+            ->group(function() {
+                Route::get('/', 'PollingUnitController@index')->name('index');
+                // polling unit member controller
+
+                Route::prefix('{pollingUnitId}/member')
+                ->name('member.')
+                ->group(function() {
+                    Route::get('/', 'PollingUnitMemberController@index')->name('index');
+                    Route::get('/create', 'PollingUnitMemberController@create')->name('create');
+                    Route::get('/{memberId}/edit', 'PollingUnitMemberController@edit')->name('edit');
+                    Route::post('/register', 'PollingUnitMemberController@register')->name('register');
+                    Route::post('/{memberId}/update', 'PollingUnitMemberController@update')->name('update');
+                    
+                });
+            });
+    
+   });
+});
+
 Route::prefix('system')
    ->middleware(['auth:sanctum', 'verified'])
    ->name('system.')

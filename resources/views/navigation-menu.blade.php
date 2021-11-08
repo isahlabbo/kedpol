@@ -22,7 +22,7 @@
                     <x-jet-nav-link href="{{ route('federal-constituency.index') }}" :active="request()->routeIs('federal-constituency.index')">
                         {{ __('Federal Constituencies') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('senatorial-zone.index') }}" :active="request()->routeIs('government.index')">
+                    <x-jet-nav-link href="{{ route('state-constituency.index') }}" :active="request()->routeIs('state-constituency.index')">
                         {{ __('State Constituencies') }}
                     </x-jet-nav-link>
                     

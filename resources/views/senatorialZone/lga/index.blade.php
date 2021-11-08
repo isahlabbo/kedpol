@@ -20,7 +20,7 @@
         </thead>
         <tbody>
             @foreach($zone->senatorialZoneLgas as $senatorialZoneLga)
-            <tr class="bg-purple-200">
+            <tr class="">
                 <td>{{$loop->iteration}}</td>
                 <td>{{$senatorialZoneLga->lga->name}}</td>
                 <td>{{count($senatorialZoneLga->lga->wards)}}</td>

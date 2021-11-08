@@ -9,7 +9,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
     <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
-        <table class="table table-auto w-full text-left tracking-wider uppercase">
+        <table class="table table-auto w-full text-left uppercase">
         <thead>
            <tr>
                <th class="w-1/2">S/N</th>
@@ -25,7 +25,7 @@
                 <td>{{count($pollingUnit->users)}}</td>
                 
                 <td>
-                   <a href="{{ route('senatorial-zone.lga.ward.polling-unit.member.index',[$pollingUnit->id]) }}">
+                   <a href="{{ route('state-constituency.ward.polling-unit.member.index',[$ward->id,$pollingUnit->id]) }}">
                     <x-jet-button class="ml-4">
                         {{ __('more') }}
                     </x-jet-button>

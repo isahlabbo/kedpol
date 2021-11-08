@@ -16,9 +16,9 @@ class Ward extends BaseModel
     	return $this->belongsTo(Lga::class);
     }
 
-    public function stateConstituencyWards()
+    public function stateConstituencyWard()
     {
-        return $this->hasMany(StateConstituencyWard::class);
+        return $this->hasOne(StateConstituencyWard::class);
     }
 
     public function slug()

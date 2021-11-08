@@ -9,7 +9,7 @@ class StateConstituencyWard extends Model
 {
     use HasFactory;
 
-    public function StateConstituency()
+    public function stateConstituency()
     {
         return $this->belongsTo(StateConstituency::class);
     }

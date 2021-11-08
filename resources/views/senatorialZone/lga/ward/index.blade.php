@@ -20,7 +20,7 @@
         </thead>
         <tbody>
             @foreach($lga->wards as $ward)
-            <tr class="bg-purple-200">
+            <tr class="">
                 <td>{{$loop->iteration}}</td>
                 <td>{{$ward->name}}</td>
                 <td>{{count($ward->pollingUnits)}}</td>
