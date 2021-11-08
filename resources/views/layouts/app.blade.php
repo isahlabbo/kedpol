@@ -18,7 +18,7 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
+    <body class="bg-black font-sans antialiased">
         <x-jet-banner />
 
         <div class="min-h-screen bg-purple-900">

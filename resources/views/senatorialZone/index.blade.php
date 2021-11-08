@@ -8,24 +8,25 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-12 ">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-            <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
-                <table class="table table-fixed">
+            <div class="p-6 sm:px-20 bg-white border-b border-purple-200">
+                <table class="table table-fixed w-full h-4 tracking-wider">
                 <thead>
-                   <tr>
-                       <th class="w-1/2">S/N</th>
-                       <th class="w-1/4">Senatorial Zon</th>
-                       <th class="w-1/4">Local governments</th>
-                       <th class="w-1/4">Wards</th>
-                       <th class="w-1/4">Polling Units</th>
-                       <th class="w-1/2"></th>
+                   <tr class="w-full uppercase text-left">
+                       <th class="">S/N</th>
+                       <th class="">Senatorial Zon</th>
+                       <th class="">Local governments</th>
+                       <th class="">Wards</th>
+                       <th class="">Polling Units</th>
+                       <th class=""></th>
+                       <th class=""></th>
                    </tr>
                 </thead>
                 <tbody>
                     @foreach($zones as $zone)
-                    <tr class="bg-purple-200">
+                    <tr class="w-full text-left">
                         <td>{{$zone->id}}</td>
                         <td>{{$zone->name}}</td>
                         <td>{{count($zone->senatorialZoneLgas)}}</td>
@@ -35,6 +36,13 @@
                             <a href="{{route('senatorial-zone.lga.index',[$zone->id])}}">
                             <x-jet-button class="ml-4">
                                 {{ __('more') }}
+                            </x-jet-button>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{{route('senatorial-zone.agent.create',[$zone->id])}}">
+                            <x-jet-button class="ml-4">
+                                {{ __('asign Agent') }}
                             </x-jet-button>
                             </a>
                         </td>

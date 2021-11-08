@@ -16,6 +16,7 @@
  
     <form method="POST" action="{{ route('senatorial-zone.lga.ward.polling-unit.member.register',[$pollingUnit->id]) }}">
             @csrf
+            <div class="flex sm:flex-col">
             <div class="mt-4">
                 <x-jet-label for="name" value="{{ __('Name') }}" />
                 <x-jet-input id="name" class=" mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
@@ -42,6 +43,7 @@
                 <x-jet-button class="ml-4">
                     {{ __('Register') }}
                 </x-jet-button>
+            </div>
             </div>
         </form>
         <div class="mt-6 text-gray-500"></div>

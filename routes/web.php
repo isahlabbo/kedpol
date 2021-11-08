@@ -34,7 +34,13 @@ Route::prefix('senatorial-zone')
    ->namespace('SenatorialZone')
    ->group(function() {
     Route::get('/', 'SenatorialZoneController@index')->name('index');
-    // lga routs
+
+    Route::prefix('{senatorialZoneId}/agent')
+   ->name('agent.')
+   ->group(function() {
+      Route::get('/', 'SenatorialZoneAgentController@create')->name('create');
+
+   });
 
     Route::prefix('lga')
    ->name('lga.')

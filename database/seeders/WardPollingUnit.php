@@ -21,6 +21,10 @@ use App\Services\State\Mayama;
 use App\Services\State\Ngaski;
 use App\Services\State\Sakaba;
 use App\Services\State\Shanga;
+use App\Services\State\Suru;
+use App\Services\State\WasaguDanko;
+use App\Services\State\Yauri;
+use App\Services\State\Zuru;
 
 class WardPollingUnit extends Seeder
 {
@@ -29,7 +33,7 @@ class WardPollingUnit extends Seeder
      *
      * @return void
      */
-    use Aliero, Arewa, Argungu, Augie, Bagudo, BirninKebbi ,Bunza, Dandi, Fakai, Gwandu, Jega, Kalgo, KokoBesse, Mayama, Ngaski, Sakaba, Shanga;
+    use Aliero, Arewa, Argungu, Augie, Bagudo, BirninKebbi ,Bunza, Dandi, Fakai, Gwandu, Jega, Kalgo, KokoBesse, Mayama, Ngaski, Sakaba, Shanga, Suru, WasaguDanko,Yauri, Zuru;
 
     public function formatCode($code, $step)
     {
@@ -123,6 +127,23 @@ class WardPollingUnit extends Seeder
                 case 'Shanga':
                     $this->registerShangaWardsAndTheirPollingUnits($newLga, $wardCode);
                 break;
+
+                case 'Suru':
+                    $this->registerSuruWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Wasagu Danko':
+                    $this->registerWasaguDankoWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Yauri':
+                    $this->registerYauriWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+
+                case 'Zuru':
+                    $this->registerZuruWardsAndTheirPollingUnits($newLga, $wardCode);
+                break;
+            
             
             
                 default:

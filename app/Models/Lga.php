@@ -34,4 +34,5 @@ class Lga extends BaseModel
         }
         return $count;
     }
+
 }
