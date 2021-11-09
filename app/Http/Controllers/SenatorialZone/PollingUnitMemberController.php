@@ -24,7 +24,7 @@ class PollingUnitMemberController extends Controller
         return view('senatorialZone.lga.ward.pollingUnit.member.create',['lgas'=>Lga::all(),'pollingUnit'=>PollingUnit::find($pollingUnitId)]);
     }
 
-    public function edit($userId)
+    public function edit($pollingUnitId, $userId)
     {
         return view('senatorialZone.lga.ward.pollingUnit.member.edit',['member'=>User::find($userId)]);
     }
@@ -56,7 +56,7 @@ class PollingUnitMemberController extends Controller
             });
         });
 
-        return redirect()->route('senatorial-zone.lga.ward.polling-unit.member.index',[$pollingUnitId]);
+        return redirect()->route('senatorial-zone.lga.ward.polling-unit.member.index',[$pollingUnitId])->withSuccess('Registered');
     }
 
     public function update(Request $request, $pollingUnitId, $memberId)
@@ -88,6 +88,6 @@ class PollingUnitMemberController extends Controller
                 'email' => $input['email']]);
         
 
-        return back();
+        return back()->withSuccess('Updated');
     }
 }

@@ -43,11 +43,11 @@ class StateConstituencyTableSeeder extends Seeder
             ],
             [
                 "name"=>"BIRNIN KEBBI NORTH",
-                'wards'=>["ZAURO","GAWASU","KARDI YAMMA","LAGGA","GULUMBE","AMBURSA","UJARIYO"]
+                'wards'=>["BIRNIN KEBBI MAFARA","BIRNIN KEBBI DANGALADIMA","GAWASU""GWADANGWAJE","KOLA/TARASA","MAKERA", "MAURIDA/KARYO/UNG. MIJIN NANA"]
             ],
             [
                 "name"=>"BIRNIN KEBBI SOUTH",
-                'wards'=>["NASSARAWA I", "NASSARAWA II", "BIRNIN KEBBI MAFARA","BIRNIN KEBBI DANGALADIMA", "KOLA/TARASA","MAKERA","MAURIDA/KARYO/UNG. MIJIN NANA","GWADANGWAJE"]
+                'wards'=>["AMBURSA","GULUMBE","KARDI YAMMA","LAGGA","NASSARAWA I", "NASSARAWA II", "UJARIYO", "ZAURO"]
             ],
             [
                 "name"=>"BUNZA",
@@ -99,11 +99,11 @@ class StateConstituencyTableSeeder extends Seeder
             ],
             [
                 "name"=>"WASAGU DANKO EAST",
-                'wards'=>["AYU","BENA","DAN UMARU /MAI RAI-RAI","DANKO/MAGA","KANYA"]
+                'wards'=>["AYU","BENA","DAN UMARU /MAI RAI-RAI","WASAGU"]
             ],
             [
                 "name"=>"WASGU DANKO WEST",
-                'wards'=>["KYABU/KANDU","RIBAH/MACHIKA","WAJE","WASAGU","YALMO/SHINDA","GWANFI/KELE"]
+                'wards'=>["DANKO/MAGA","KANYA","KYABU/KANDU","RIBAH/MACHIKA","WAJE","YALMO/SHINDA","GWANFI/KELE"]
             ],
             [
                 "name"=>"YAURI",

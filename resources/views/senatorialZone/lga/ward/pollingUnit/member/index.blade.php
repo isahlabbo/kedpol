@@ -30,7 +30,7 @@
                 <td>{{$member->email}}</td>
                 <td>{{$member->nin}}</td>
                 <td>
-                   <a href="{{ route('senatorial-zone.lga.ward.polling-unit.member.edit',[$pollingUnit->ward->id,$pollingUnit->id,$member->id]) }}">
+                   <a href="{{ route('senatorial-zone.lga.ward.polling-unit.member.edit',[$pollingUnit->id,$member->id]) }}">
                     <x-jet-button class="ml-4">
                         {{ __('Edit') }}
                     </x-jet-button>

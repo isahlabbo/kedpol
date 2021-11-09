@@ -32,9 +32,10 @@
                     </div>
                 </header>
             @endif
-
+   
             <!-- Page Content -->
             <main>
+                @include('sweetalert::alert')
                 {{ $slot }}
             </main>
         </div>

@@ -4,7 +4,7 @@
     @endsection   
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-purple-800 leading-tight">
-            {{ __('Kebbi Senatorial Zone') }}
+        {{ Breadcrumbs::render('senatorial-zone') }}</b> 
         </h2>
     </x-slot>
 
