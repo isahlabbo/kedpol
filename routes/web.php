@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Lga;
+use App\Models\SenatorialZone;
+use App\Models\FederalConstituency;
+use App\Models\StateConstituency;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +17,7 @@ use App\Models\Lga;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome',['stateConstituencies'=>StateConstituency::all(),'federalConstituencies'=>FederalConstituency::all(),'senatorialZones'=>SenatorialZone::all()]);
 })->name('welcome');
 
 Route::prefix('ajax')

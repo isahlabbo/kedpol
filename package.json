@@ -1,13 +1,14 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
+        "dev": "npm run development -w",
         "development": "mix",
         "watch": "mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "build": "tailwindcss -i public/css/tailwind.css -o public/css/style.css --watch"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.3.1",
