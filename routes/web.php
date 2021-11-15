@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Lga;
+use App\Models\User;
+use App\Models\Team;
 use App\Models\SenatorialZone;
 use App\Models\FederalConstituency;
 use App\Models\StateConstituency;
@@ -15,7 +17,9 @@ use App\Models\StateConstituency;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/teams' , function(){
+     dd(User::find(9));
+});
 Route::get('/', function () {
     return view('welcome',['stateConstituencies'=>StateConstituency::all(),'federalConstituencies'=>FederalConstituency::all(),'senatorialZones'=>SenatorialZone::all()]);
 })->name('welcome');

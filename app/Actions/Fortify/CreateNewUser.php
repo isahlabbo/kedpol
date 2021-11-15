@@ -11,6 +11,7 @@ use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
 use App\Models\PollingUnit;
 use App\Events\Core\MemberRegistered;
+use App\Events\Core\TeamRegistered;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -47,7 +48,6 @@ class CreateNewUser implements CreatesNewUsers
                 $user->update([
                     'code' => $user->pollingUnit->getNewMemberCode(),
                     ]);
-                $this->createTeam($user);
                 $user->userRoles()->create(['role_id'=>5]);
                 event(new MemberRegistered($user));
             });
@@ -62,10 +62,12 @@ class CreateNewUser implements CreatesNewUsers
      */
     protected function createTeam(User $user)
     {
-        $user->ownedTeams()->save(Team::forceCreate([
+        $team = $user->ownedTeams()->save(Team::forceCreate([
             'user_id' => $user->id,
             'name' => explode(' ', $user->name, 2)[0]."'s Team",
             'personal_team' => true,
+            'polling_unit_id' => $user->polling_unit_id,
         ]));
+        event(new TeamRegistered($team));
     }
 }
