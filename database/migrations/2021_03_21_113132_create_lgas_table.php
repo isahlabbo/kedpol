@@ -17,6 +17,9 @@ class CreateLgasTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('code');
+            $table->integer('polling_units')->default(0);
+            $table->integer('teams')->default(0);
+            $table->integer('members')->default(0);
             $table->timestamps();
         });
     }

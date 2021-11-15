@@ -31,6 +31,10 @@ class CreateSenatorialZoneLgasTable extends Migration
             ->on('senetorial_zones')
             ->delete('restrict')
             ->update('cascade');
+            $table->integer('wards')->default(0);
+            $table->integer('polling_units')->default(0);
+            $table->integer('teams')->default(0);
+            $table->integer('members')->default(0);
             $table->timestamps();
         });
     }

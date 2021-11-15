@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
 use App\Models\PollingUnit;
+use App\Events\Core\MemberRegistered;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -48,6 +49,7 @@ class CreateNewUser implements CreatesNewUsers
                     ]);
                 $this->createTeam($user);
                 $user->userRoles()->create(['role_id'=>5]);
+                event(new MemberRegistered($user));
             });
         });
     }

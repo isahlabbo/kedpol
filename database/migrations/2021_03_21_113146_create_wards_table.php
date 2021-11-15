@@ -25,6 +25,8 @@ class CreateWardsTable extends Migration
             ->delete('restrict')
             ->update('cascade');
             $table->string('code');
+            $table->integer('teams')->default(0);
+            $table->integer('members')->default(0);
             $table->timestamps();
         });
     }

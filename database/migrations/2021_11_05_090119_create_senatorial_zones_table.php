@@ -16,6 +16,10 @@ class CreateSenatorialZonesTable extends Migration
         Schema::create('senatorial_zones', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('wards')->default(0);
+            $table->integer('polling_units')->default(0);
+            $table->integer('teams')->default(0);
+            $table->integer('members')->default(0);
             $table->timestamps();
         });
     }

@@ -25,6 +25,8 @@ use App\Services\State\Suru;
 use App\Services\State\WasaguDanko;
 use App\Services\State\Yauri;
 use App\Services\State\Zuru;
+use App\Events\Core\WardRegistered;
+use App\Events\Core\PollingUnitRegistered;
 
 class WardPollingUnit extends Seeder
 {

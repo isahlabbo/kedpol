@@ -16,6 +16,14 @@ class CreateTeamsTable extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->index();
+            $table->integer('polling_unit_id')
+            ->unsigned()
+            ->nullable()
+            ->foreign()
+            ->references('id')
+            ->on('polling_units')
+            ->delete('restrict')
+            ->update('cascade');
             $table->string('name');
             $table->boolean('personal_team');
             $table->timestamps();

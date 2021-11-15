@@ -19,7 +19,7 @@
     </head>
     <body class="bg-purple-200 font-sans flex-col items-center">
         
-        <header class="bg-purple-400 w-full py-3 flex justify-center border-black border-b-4">
+        <header class="bg-purple-900 w-full py-3 flex justify-center border-black border-b-4">
           <div class="max-w-4xl w-full">
             <div class="flex items-center justify-between">
                 <!-- LOGO START -->
@@ -68,9 +68,9 @@
                     <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm p-4 font-serif leading-6">
                         as we all known pushing a wall made up of stones and cement can never be accomplished by single person as a result the community need to harmonise them self to bring postive changes to our community, we start by gathering people individual and groups
                         to benefit from upcoming politics to vote right leaders for the betterment of our society<br>
-                        <button class="m-4 bg-purple-800 py-2 px-4 text-purple-100 text-sm rounded-lg border-l-8 border-purple-500">
+                        <a href="{{route('register')}}"><button class="m-4 bg-purple-800 py-2 px-4 text-purple-100 text-sm rounded-lg border-l-8 border-purple-500">
                             Register Now
-                        </button>
+                        </button></a>
                     </div>
                 </div>
             </div>
@@ -116,19 +116,20 @@
                 <div class="ml-12">
                     <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm p-4 font-serif leading-6">
                         <table class="table-fixed w-full">
-                            <thead>
-                                <tr class="w-full text-left">
-                                    <th class="w-1/2">Local Government</th>
-                                    <th >Wards</th>
-                                </tr>
-                            </thead>
+                            
                             <tbody>
-                            @foreach($senatorialZone->senatorialZoneLgas as $senatorialZoneLga)
                             <tr class="text-left">
-                                <td>{{$senatorialZoneLga->lga->name}}<td>
-                                <td>{{count($senatorialZoneLga->lga->wards)}}<td>
+                                <td>Local Government</td><td>{{count($senatorialZone->senatorialZoneLgas)}}</td>
+                            </tr><tr class="text-left">
+                                <td>Wards</td><td>{{$senatorialZone->wards}}</td>
+                            </tr><tr class="text-left">
+                                <td>Polling Units</td><td>{{$senatorialZone->polling_units}}</td>
+                            </tr><tr class="text-left">
+                                <td>Teams</td><td>{{$senatorialZone->teams}}</td>
+                            </tr><tr class="text-left">    
+                                <td>Members</td><td>{{$senatorialZone->members}}</td>
                             </tr>
-                            @endforeach
+                            
                             </tbody>
                         </table>
                     </div>
@@ -137,62 +138,72 @@
             @endforeach
         </div>
         <!-- senatorial zone end -->
-        <!-- statefederal constituency -->
-        <div class="container m-8 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-            @foreach($federalConstituencies as $federalConstituency)
-            <div class="bg-white rounded-lg border-12 m-4 shadow-lg border-purple-500 border-t-4">
-                <div class="flex items-center">
-                    <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">{{$federalConstituency->name}}</a></div>
-                </div>
-                <div class="ml-12">
-                    <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm p-4 font-serif leading-6">
-                        <table class="table-fixed w-full">
-                            <thead>
-                                <tr class="w-full text-left">
-                                    <th class="w-1/2">Local Government</th>
-                                    <th >Wards</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($federalConstituency->federalConstituencyLgas as $federalConstituencyLga)
-                            <tr class="text-left">
-                                <td>{{$federalConstituencyLga->lga->name}}<td>
-                                <td>{{count($federalConstituencyLga->lga->wards)}}<td>
-                            </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-        <!-- federal constituency -->
+        
         </main>
         <footer>
         
             <div class="flex justify-center mt-4 sm:items-center sm:justify-between bg-gray-900">
-                <div class="ml-4 text-center text-sm text-white p-4 sm:text-right sm:ml-0">
-                <div class="container m-8 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-            @foreach($stateConstituencies as $stateConstituency)
-            <div class="bg-gray-400 rounded-lg border-12 m-4 shadow-lg border-purple-500 border-t-4">
-                <div class="flex items-center">
-                    <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-100 dark:text-white">{{$stateConstituency->name}}</a></div>
-                </div>
+                <div class=" text-center text-sm text-white p-4 sm:text-right border border-b-8 border-black">
+                <!-- statefederal constituency -->
+                
                 <div class="ml-12">
-                    <div class="mt-2 text-gray-100 dark:text-gray-400 text-sm p-4 font-serif leading-6">
-                        <table class="table-fixed w-full">
+                    <div class="mt-2 text-purple-100 dark:text-gray-400 text-sm p-4 font-serif leading-6">
+                   <table class="table-fixed w-full leading-6">
+                        <thead>
+                            <tr class="w-full text-left uppercase border-b-4 border-purple-300">
+                                <th class="w-1/12">S/N</th>
+                                <th class="w-1/6">Federal Constituency</th>
+                                <th class="w-1/6">Lgas</th>
+                                <th class="w-1/6">Wards</th>
+                                <th class="w-1/6">Polling Unit</th>
+                                <th class="w-1/6">Teams</th>
+                                <th class="w-1/6">Registered Users</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($federalConstituencies as $federalConstituency)
+                            <tr class="text-left ">
+                                <td>{{$loop->iteration}}</td>
+                                <td class="w-1/4">{{$federalConstituency->name}}</td>
+                                <td>{{count($federalConstituency->federalConstituencyLgas)}}</td>
+                                <td>{{$federalConstituency->wards}}</td>
+                                <td>{{$federalConstituency->polling_units}}</td>
+                                <td>{{$federalConstituency->teams}}</td>
+                                <td>{{$federalConstituency->members}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+                <!-- federal constituency -->
+
+
+
+            
+            <div class="">
+                <div class="ml-12">
+                    <div class="mt-2 text-purple-100 dark:text-gray-400 text-sm p-4 font-serif leading-6">
+                        <table class="table-fixed">
                             <thead>
-                                <tr class="w-full text-left">
-                                    <th class="w-1/2">Ward</th>
-                                    <th >Polling Units</th>
+                                <tr class="text-left uppercase border-b-4 border-purple-300">
+                                    <th class="w-1/12">S/N</th>
+                                    <th class="w-1/6">State Constituencies</th>
+                                    <th class="w-1/6">Wards</th>
+                                    <th class="w-1/6">Polling UNITS</th>
+                                    <th class="w-1/6">Member Teams</th>
+                                    <th class="w-1/6">Registered Members</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach($stateConstituency->stateConstituencyWards as $stateConstituencyWard)
+                            @foreach($stateConstituencies as $stateConstituency)
                             <tr class="text-left">
-                                <td>{{$stateConstituencyWard->ward->name}}<td>
-                                <td>{{count($stateConstituencyWard->ward->pollingUnits)}}<td>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$stateConstituency->name}}</td>
+                                <td>{{count($stateConstituency->stateConstituencyWards)}}</td>
+                                <td>{{$stateConstituency->polling_units}}</td>
+                                <td>{{$stateConstituency->teams}}</td>
+                                <td>{{$stateConstituency->members}}</td>
                             </tr>
                             @endforeach
                             </tbody>
@@ -200,8 +211,8 @@
                     </div>
                 </div>
             </div>
-            @endforeach
-        </div>
+            
+        
                     All right reserved @ {{config('app.name')}} {{date('Y')}}
                 </div>
             </div>

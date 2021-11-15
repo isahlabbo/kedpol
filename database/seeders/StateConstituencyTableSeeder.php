@@ -43,7 +43,7 @@ class StateConstituencyTableSeeder extends Seeder
             ],
             [
                 "name"=>"BIRNIN KEBBI NORTH",
-                'wards'=>["BIRNIN KEBBI MAFARA","BIRNIN KEBBI DANGALADIMA","GAWASU""GWADANGWAJE","KOLA/TARASA","MAKERA", "MAURIDA/KARYO/UNG. MIJIN NANA"]
+                'wards'=>["BIRNIN KEBBI MAFARA","BIRNIN KEBBI DANGALADIMA","GAWASU","GWADANGWAJE","KOLA/TARASA","MAKERA", "MAURIDA/KARYO/UNG. MIJIN NANA"]
             ],
             [
                 "name"=>"BIRNIN KEBBI SOUTH",

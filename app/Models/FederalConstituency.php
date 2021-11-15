@@ -13,4 +13,39 @@ class FederalConstituency extends BaseModel
     {
         return $this->hasMany(FederalConstituencyLga::class);
     }
+    
+    public function wards()
+    {
+        $wards = [];
+        foreach ($this->federalConstituencyLgas as $federalConstituencyLga) {
+            foreach($federalConstituencyLga->lga->wards as $ward){
+                $wards[] = $ward;
+            }
+        }
+        return $wards;
+    }
+
+    public function pollingUnits()
+    {
+        $pollingUnits = [];
+        foreach ($this->federalConstituencyLgas as $federalConstituencyLga) {
+            foreach($federalConstituencyLga->lga->wards as $ward){
+                foreach ($ward->pollingUnits as $pollingUnit) {
+                    $pollingUnits[] = $pollingUnit;
+                }
+            }
+        }
+        return $pollingUnits;
+    }
+
+    public function members()
+    {
+        $members = [];
+        foreach($this->pollingUnits() as $pollingUnit){
+            foreach($pollingUnit->users as $member){
+               $members[] = $member;
+            }
+        }
+        return $members;
+    }
 }

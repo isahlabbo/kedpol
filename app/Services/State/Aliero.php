@@ -9,9 +9,10 @@ trait Aliero {
             // create wards with $ward['name'] as name
             $newWard = $lga->wards()->firstOrCreate(['name'=>$ward['name'],'code'=>$this->formatCode($wardCode,1)]);
             $unitCode = 1;
+            
             foreach ($ward['units'] as $key => $value) {
                 // create unit with $unit['code'] as code and $unit['name'] as name of the unit
-                $newWard->pollingUnits()->firstOrCreate(['name'=>$value,'code'=>$this->formatCode($unitCode,2)]);
+                $pollingUnit = $newWard->pollingUnits()->firstOrCreate(['name'=>$value,'code'=>$this->formatCode($unitCode,2)]);
                 $unitCode++;
             }
             $wardCode++;

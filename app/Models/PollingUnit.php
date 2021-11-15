@@ -17,6 +17,30 @@ class PollingUnit extends BaseModel
     	return $this->hasMany(User::class);
     }
 
+    public function teams()
+    {
+    	return $this->hasMany(Team::class);
+    }
+
+    public function federalConstituency()
+    {
+        return $this->ward->lga->federalConstituencyLga->federalConstituency;
+    }
+
+    public function senatorialZone()
+    {
+        return $this->ward->lga->senatorialZoneLga->senatorialZone;
+    }
+    public function stateConstituency()
+    {
+        return $this->ward->stateConstituencyWard->stateConstituency;
+    }
+
+    public function lga()
+    {
+        return $this->ward->lga;
+    }
+    
     public function getNewMemberCode()
     {
     	$code = $this->ward->lga->code
@@ -26,8 +50,6 @@ class PollingUnit extends BaseModel
         return $code;
     }
         
-    
-
     public function formatCount($count)
     {
         if($count < 10){

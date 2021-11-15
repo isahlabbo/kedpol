@@ -16,9 +16,9 @@ class Lga extends BaseModel
         return $this->hasOne(FederalConstituencyLga::class);
     }
 
-    public function senetorialZoneLga()
+    public function senatorialZoneLga()
     {
-        return $this->hasOne(SenetorialZoneLga::class);
+        return $this->hasOne(SenatorialZoneLga::class);
     }
 
     public function slug()

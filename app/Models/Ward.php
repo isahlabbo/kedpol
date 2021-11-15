@@ -25,6 +25,16 @@ class Ward extends BaseModel
     {
         return strtolower(str_replace(' ','-',$this->name));
     }
+    
+    public function federalConstituency()
+    {
+        return $this->lga->federalConstituencyLga->federalConstituency;
+    }
+
+    public function senatorialZone()
+    {
+        return $this->lga->senatorialZoneLga->senatorialZone;
+    }
 
     public function members()
     {
