@@ -34,6 +34,19 @@
 
             <x-jet-input-error for="name" class="mt-2" />
         </div>
+
+        <!-- Team Name -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="name" value="{{ __('Team Description') }}" />
+
+            <textarea id="name"
+                        type="text"
+                        class="block mt-1 w-full border-purple-500 focus:border-purple-800 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
+                        wire:model.defer="state.description"
+                        :disabled="! Gate::check('update', $team)"></textarea>
+
+            <x-jet-input-error for="name" class="mt-2" />
+        </div>
     </x-slot>
 
     @if (Gate::check('update', $team))

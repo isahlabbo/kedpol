@@ -11,6 +11,7 @@ use Laravel\Jetstream\Events\InvitingTeamMember;
 use Laravel\Jetstream\Jetstream;
 use Laravel\Jetstream\Mail\TeamInvitation;
 use Laravel\Jetstream\Rules\Role;
+use App\Models\User;
 
 class InviteTeamMember implements InvitesTeamMembers
 {
@@ -23,20 +24,26 @@ class InviteTeamMember implements InvitesTeamMembers
      * @param  string|null  $role
      * @return void
      */
-    public function invite($user, $team, string $email, string $role = null)
+    public function invite($user, $team, string $phone, string $role = null)
     {
+        
         Gate::forUser($user)->authorize('addTeamMember', $team);
 
-        $this->validate($team, $email, $role);
+        $this->validate($team, $phone, $role);
+        if($this->isRegisteredUser($phone)){
+            InvitingTeamMember::dispatch($team, $phone, $role);
+        
+            $invitation = $team->teamInvitations()->create([
+                'phone' => $phone,
+                'role' => $role,
+            ]);
+            return back()->withSuccess($phone.' Invited to '.$team->name);
+        }else{
+            return back()->withError($phone.' does not match our record');
+        }
+        
 
-        InvitingTeamMember::dispatch($team, $email, $role);
-
-        $invitation = $team->teamInvitations()->create([
-            'email' => $email,
-            'role' => $role,
-        ]);
-
-        Mail::to($email)->send(new TeamInvitation($invitation));
+        // Mail::to($email)->send(new TeamInvitation($invitation));
     }
 
     /**
@@ -47,15 +54,15 @@ class InviteTeamMember implements InvitesTeamMembers
      * @param  string|null  $role
      * @return void
      */
-    protected function validate($team, string $email, ?string $role)
+    protected function validate($team, string $phone, ?string $role)
     {
         Validator::make([
-            'email' => $email,
+            'phone' => $phone,
             'role' => $role,
         ], $this->rules($team), [
-            'email.unique' => __('This user has already been invited to the team.'),
+            'phone.unique' => __('This user has already been invited to the team.'),
         ])->after(
-            $this->ensureUserIsNotAlreadyOnTeam($team, $email)
+            $this->ensureUserIsNotAlreadyOnTeam($team, $phone)
         )->validateWithBag('addTeamMember');
     }
 
@@ -68,7 +75,7 @@ class InviteTeamMember implements InvitesTeamMembers
     protected function rules($team)
     {
         return array_filter([
-            'email' => ['required', 'email', Rule::unique('team_invitations')->where(function ($query) use ($team) {
+            'phone' => ['required', Rule::unique('team_invitations')->where(function ($query) use ($team) {
                 $query->where('team_id', $team->id);
             })],
             'role' => Jetstream::hasRoles()
@@ -81,17 +88,22 @@ class InviteTeamMember implements InvitesTeamMembers
      * Ensure that the user is not already on the team.
      *
      * @param  mixed  $team
-     * @param  string  $email
+     * @param  string  $phone
      * @return \Closure
      */
-    protected function ensureUserIsNotAlreadyOnTeam($team, string $email)
+    protected function ensureUserIsNotAlreadyOnTeam($team, string $phone)
     {
-        return function ($validator) use ($team, $email) {
+        return function ($validator) use ($team, $phone) {
             $validator->errors()->addIf(
-                $team->hasUserWithEmail($email),
-                'email',
+                $team->hasUserWithPhone($phone),
+                'phone',
                 __('This user already belongs to the team.')
             );
         };
+    }
+
+    protected function isRegisteredUser($phone)
+    {
+        return User::where('phone',$phone)->first();
     }
 }

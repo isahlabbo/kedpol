@@ -13,7 +13,7 @@ class TeamInvitation extends JetstreamTeamInvitation
      * @var string[]
      */
     protected $fillable = [
-        'email',
+        'phone',
         'role',
     ];
 

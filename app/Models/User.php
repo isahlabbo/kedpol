@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\TeamInvitation;
 
 class User extends Authenticatable
 {
@@ -76,6 +77,15 @@ class User extends Authenticatable
             $flag = true;
         }
         return $flag;
+    }
+
+    public function invitations()
+    {
+        $invitations = [];
+        foreach(TeamInvitation::where('phone',$this->phone)->get() as $invitation){
+            $invitations[] = $invitation;
+        }
+        return $invitations;
     }
 
     public function createTeam()

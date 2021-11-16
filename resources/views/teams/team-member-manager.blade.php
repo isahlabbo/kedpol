@@ -16,15 +16,15 @@
                 <x-slot name="form">
                     <div class="col-span-6">
                         <div class="max-w-xl text-sm text-gray-600">
-                            {{ __('Please provide the email address of the person you would like to add to this team.') }}
+                            {{ __('Please provide the phone number of the person you would like to add to this team.') }}
                         </div>
                     </div>
 
                     <!-- Member Email -->
                     <div class="col-span-6 sm:col-span-4">
-                        <x-jet-label for="email" value="{{ __('Email') }}" />
-                        <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="addTeamMemberForm.email" />
-                        <x-jet-input-error for="email" class="mt-2" />
+                        <x-jet-label for="phone" value="{{ __('Phone') }}" />
+                        <x-jet-input id="phone" type="text" class="mt-1 block w-full" wire:model.defer="addTeamMemberForm.email" />
+                        <x-jet-input-error for="phone" class="mt-2" />
                     </div>
 
                     <!-- Role -->
@@ -92,7 +92,7 @@
                     <div class="space-y-6">
                         @foreach ($team->teamInvitations as $invitation)
                             <div class="flex items-center justify-between">
-                                <div class="text-gray-600">{{ $invitation->email }}</div>
+                                <div class="text-gray-600">{{ $invitation->phone }}</div>
 
                                 <div class="flex items-center">
                                     @if (Gate::check('removeTeamMember', $team))

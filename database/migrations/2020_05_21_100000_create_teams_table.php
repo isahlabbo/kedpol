@@ -25,6 +25,7 @@ class CreateTeamsTable extends Migration
             ->delete('restrict')
             ->update('cascade');
             $table->string('name');
+            $table->string('description')->default('About Team');
             $table->boolean('personal_team');
             $table->timestamps();
         });

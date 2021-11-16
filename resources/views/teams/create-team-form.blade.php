@@ -26,6 +26,11 @@
             <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autofocus />
             <x-jet-input-error for="name" class="mt-2" />
         </div>
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="description" value="{{ __('Team Description') }}" />
+            <textarea id="description" placeholder="Pls write some thing about the team of atleast 5 to 10 sentences" class="block mt-1 w-full border-purple-500 focus:border-purple-800 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" wire:model.defer="state.description" autofocus></textarea>
+            <x-jet-input-error for="description" class="mt-2" />
+        </div>
     </x-slot>
 
     <x-slot name="actions">

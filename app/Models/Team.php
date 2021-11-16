@@ -29,6 +29,8 @@ class Team extends JetstreamTeam
     protected $fillable = [
         'name',
         'personal_team',
+        'polling_unit_id',
+        'description',
     ];
 
     /**
@@ -46,4 +48,15 @@ class Team extends JetstreamTeam
     {
         return $this->belongsTo(PollingUnit::class);
     }
+    public function teamUsers()
+    {
+        return $this->hasMany(TeamUser::class);
+    }
+    public function hasUserWithPhone(string $phone)
+    {
+        return $this->allUsers()->contains(function ($user) use ($phone) {
+            return $user->phone === $phone;
+        });
+    }
+
 }

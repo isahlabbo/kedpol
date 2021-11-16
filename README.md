@@ -213,3 +213,16 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 <!-- END PAGE SOURCE -->
 </body>
 </html>
+
+app(AddsTeamMembers::class)->add(
+            $invitation->team->owner,
+            $invitation->team,
+            $invitation->email,
+            $invitation->role
+        );
+
+        $invitation->delete();
+
+        return redirect(config('fortify.home'))->banner(
+            __('Great! You have accepted the invitation to join the :team team.', ['team' => $invitation->team->name]),
+        );

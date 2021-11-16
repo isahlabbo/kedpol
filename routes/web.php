@@ -18,7 +18,7 @@ use App\Models\StateConstituency;
 |
 */
 Route::get('/teams' , function(){
-     dd(User::find(9));
+     dd(app(AddsTeamMembers::class));
 });
 Route::get('/', function () {
     return view('welcome',['stateConstituencies'=>StateConstituency::all(),'federalConstituencies'=>FederalConstituency::all(),'senatorialZones'=>SenatorialZone::all()]);

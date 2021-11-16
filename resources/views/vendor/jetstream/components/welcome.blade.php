@@ -8,10 +8,7 @@
     </div> 
 
     <div class="mt-6 text-gray-500">
-        Kedpol provides a robust starting point for the community development, the system application is designed
-        to help you build your community and keep track of recent and non recent development from the pioneers in politics. We believe
-        you should love expressing our creativity through technology, so we have spent time carefully crafting the system
-        ecosystem to be a breath of fresh air. We hope all kebbi state citizen will love it.
+        {{Auth::user()->currentTeam->description ?? 'there is no current team for you please register new one or or join other'}}
     </div>
 </div>
 
@@ -65,12 +62,54 @@
     <div class="p-6 border-t border-gray-200">
         <div class="flex items-center">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-400"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-            <div class="ml-4 text-lg text-purple-900 leading-7 font-semibold">Political Teams</div>
+            <div class="ml-4 text-lg text-purple-900 leading-7 font-semibold">{{ __('Pending Team Invitations') }}</div>
         </div>
 
         <div class="ml-12">
             <div class="mt-2 text-sm text-gray-500">
-                {{count(Auth::user()->allTeams())}}
+            <div class="mt-10 sm:mt-0">
+            
+                @if(count(Auth::user()->invitations()) >0)
+                
+                    {{ __('These people have invited you to colaborate in their team. Pls accept the invitation.') }}
+                
+                    <div class="flex justify-center space-y-6 border border-b-2 border-purple-800 m-4  rounded-lg">
+                        
+                        @foreach (Auth::user()->invitations() as $invitation)
+                        <div class="flex flex-col">
+                            <div class="flex items-center justify-between m-4 font-serif leading-6 font-bold text-gray-600">about the teamgfhhfffhf fgfhfhf gfhhfffh ffhfhff hfhfhf</div>
+                            <div class="flex items-center justify-between m-4 font-serif leading-6 font-bold text-gray-600">
+                            <tr class="w-full">
+                            <td>Team Name</td>
+                            <td class="border border-b-4 border-gray-900">{{$invitation->team->name}}</td>
+                            </tr></div>
+                            <div class="flex items-center justify-center m-4 font-bold text-gray-600">
+                                <div class="text m-4">Members</div>
+                                <div class="bg-purple-800 h-auto w-auto p-2 rounded-full text-purple-100 text-center">{{count($invitation->team->teamUsers)}}</div>
+                            </div>
+
+                            <div class="flex items-center justify-center">
+                                
+                                <div class="flex">
+                                    <!-- accept the invitaion -->
+                                    <a href="{{route('team-invitations.accept',[$invitation->id])}}"><x-jet-button class="ml-4">
+                                        {{ __('Accept Invitation') }}
+                                    </x-jet-button>
+                                    </a>
+                                    <x-jet-danger-button class="ml-4">
+                                        {{ __('Reject Invitation') }}
+                                    </x-jet-button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                @else
+                Noinvitaion available    
+                @endif
+            
+        </div>
             </div>
         </div>
     </div>

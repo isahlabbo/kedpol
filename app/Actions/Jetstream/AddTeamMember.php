@@ -17,44 +17,44 @@ class AddTeamMember implements AddsTeamMembers
      *
      * @param  mixed  $user
      * @param  mixed  $team
-     * @param  string  $email
+     * @param  string  $phone
      * @param  string|null  $role
      * @return void
      */
-    public function add($user, $team, string $email, string $role = null)
+    public function add($user, $team, string $phone, string $role = null)
     {
+        
         Gate::forUser($user)->authorize('addTeamMember', $team);
 
-        $this->validate($team, $email, $role);
+        $this->validate($team, $phone, $role);
 
-        $newTeamMember = Jetstream::findUserByEmailOrFail($email);
-
-        AddingTeamMember::dispatch($team, $newTeamMember);
+        $newTeamMember = Jetstream::findUserByPhoneOrFail($phone);
 
         $team->users()->attach(
             $newTeamMember, ['role' => $role]
         );
 
-        TeamMemberAdded::dispatch($team, $newTeamMember);
+        
     }
 
     /**
      * Validate the add member operation.
      *
      * @param  mixed  $team
-     * @param  string  $email
+     * @param  string  $phone
      * @param  string|null  $role
      * @return void
      */
-    protected function validate($team, string $email, ?string $role)
+    protected function validate($team, string $phone, ?string $role)
     {
+        
         Validator::make([
-            'email' => $email,
+            'phone' => $phone,
             'role' => $role,
         ], $this->rules(), [
-            'email.exists' => __('We were unable to find a registered user with this email address.'),
+            'phone.exists' => __('We were unable to find a registered user with this phone address.'),
         ])->after(
-            $this->ensureUserIsNotAlreadyOnTeam($team, $email)
+            $this->ensureUserIsNotAlreadyOnTeam($team, $phone)
         )->validateWithBag('addTeamMember');
     }
 
@@ -66,7 +66,7 @@ class AddTeamMember implements AddsTeamMembers
     protected function rules()
     {
         return array_filter([
-            'email' => ['required', 'email', 'exists:users'],
+            'phone' => ['required', 'phone', 'exists:users'],
             'role' => Jetstream::hasRoles()
                             ? ['required', 'string', new Role]
                             : null,
@@ -77,15 +77,15 @@ class AddTeamMember implements AddsTeamMembers
      * Ensure that the user is not already on the team.
      *
      * @param  mixed  $team
-     * @param  string  $email
+     * @param  string  $phone
      * @return \Closure
      */
-    protected function ensureUserIsNotAlreadyOnTeam($team, string $email)
+    protected function ensureUserIsNotAlreadyOnTeam($team, string $phone)
     {
-        return function ($validator) use ($team, $email) {
+        return function ($validator) use ($team, $phone) {
             $validator->errors()->addIf(
-                $team->hasUserWithEmail($email),
-                'email',
+                $team->hasUserWithPhone($phone),
+                'phone',
                 __('This user already belongs to the team.')
             );
         };
