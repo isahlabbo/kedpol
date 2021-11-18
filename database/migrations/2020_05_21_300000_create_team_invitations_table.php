@@ -18,7 +18,7 @@ class CreateTeamInvitationsTable extends Migration
             $table->foreignId('team_id')->constrained()->cascadeOnDelete();
             $table->string('phone');
             $table->string('role')->nullable();
-            $table->boolean('status')->default(1);
+            $table->string('status')->default('pending');
             $table->timestamps();
             $table->unique(['team_id', 'phone']);
         });

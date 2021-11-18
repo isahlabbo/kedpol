@@ -15,6 +15,7 @@ class TeamInvitation extends JetstreamTeamInvitation
     protected $fillable = [
         'phone',
         'role',
+        'status',
     ];
 
     /**
@@ -26,4 +27,5 @@ class TeamInvitation extends JetstreamTeamInvitation
     {
         return $this->belongsTo(Jetstream::teamModel());
     }
+    
 }

@@ -30,17 +30,13 @@ class InviteTeamMember implements InvitesTeamMembers
         Gate::forUser($user)->authorize('addTeamMember', $team);
 
         $this->validate($team, $phone, $role);
-        if($this->isRegisteredUser($phone)){
+       
             InvitingTeamMember::dispatch($team, $phone, $role);
         
             $invitation = $team->teamInvitations()->create([
                 'phone' => $phone,
                 'role' => $role,
             ]);
-            return back()->withSuccess($phone.' Invited to '.$team->name);
-        }else{
-            return back()->withError($phone.' does not match our record');
-        }
         
 
         // Mail::to($email)->send(new TeamInvitation($invitation));

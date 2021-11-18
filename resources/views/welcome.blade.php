@@ -10,210 +10,45 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
-        <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
+        
         @livewireStyles
 
         
     </head>
     <body class="bg-purple-200 font-sans flex-col items-center">
         
-        <header class="bg-purple-900 w-full py-3 flex justify-center border-black border-b-4">
-          <div class="max-w-4xl w-full">
-            <div class="flex items-center justify-between">
-                <!-- LOGO START -->
-                <img class="w-16 h-16" src="{{asset('images/clock.png')}}"/>
-            <div class="-mr-2 flex items-center sm:hidden">
-            <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-purple-900 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition sm:hidden">
-                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                    <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-               
-            </div>
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    <a href="{{ route('login') }}" class="text-sm text-white dark:text-gray-500 underline">Log in</a>
-                </div>
-            @endif
-            </div>
-            <div class="my-4 font-bold ">
-            <h1 class="text text-xl text-purple-200 font-mono">KEBBI DIGITAL POLITICS</h1>
-            <P class="text text-lg text-purple-100 tracking-wide mt-2 font-mono"> We aim to create relative political teams of same or similar political interest from all communities across the state</P>
-            </div> 
-          </div>
-        </header>
+        <!-- header start -->
+        @livewire('welcome.header')
+        <!-- header end -->
+
         <main>
+        <!-- banner start -->
+        @livewire('welcome.banner')
+        <!-- banner end -->
 
+        <!-- question start -->
+        @livewire('welcome.question')
+        <!-- question end -->
         
-        <div class="flex  w-full my-16 justify-center ">
-            <div class="mt-2 text-purple-600 dark:text-purple-400 text-sm p-4 font-serif leading-6 tracking-wider font-bold w-1/5">
-                The kebbi digital politics does not belongs to any political party or work for any politician. There for the system is built by the kebbi state youth that are much concern in bringing the changes in the community through the use of technology of information management.
-            </div>
-            <div class=" bg-white border border-l-2 rounded-lg">
-                <img class="w-1600 h-160" src="{{asset('images/clock.png')}}"/>
-            </div>
-        </div>
-
-        <div class="container m-8 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-            
-            <div class="bg-white rounded-lg border-12 m-4 shadow-lg border-purple-500 border-b-4">
-                <div class="flex items-center">
-                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                    <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">What is the benefit ?</a></div>
-                </div>
-                <div class="ml-12">
-                    <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm p-4 font-serif leading-6">
-                        as we all known pushing a wall made up of stones and cement can never be accomplished by single person as a result the community need to harmonise them self to bring postive changes to our community, we start by gathering people individual and groups
-                        to benefit from upcoming politics to vote right leaders for the betterment of our society<br>
-                        <a href="{{route('register')}}"><button class="m-4 bg-purple-800 py-2 px-4 text-purple-100 text-sm rounded-lg border-l-8 border-purple-500">
-                            Register Now
-                        </button></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-lg border-12 m-4 shadow-lg border-purple-500 border-b-4">
-                <div class="flex items-center">
-                    <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">What is a team ?</a></div>
-                </div>
-
-                <div class="ml-12">
-                    <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm p-4 font-serif leading-6">
-                        A team is the union of two or more members within polling unit, ward or local government that have similar or same political interest which can stand as single body to fight for the community or individual development.
-                        <button class="m-4 bg-purple-800 py-2 px-4 text-purple-100 text-sm rounded-lg border-l-8 border-purple-500">
-                            Create One OR Join Other
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-lg border-12 m-4 shadow-lg border-purple-500 border-b-4">
-                <div class="flex items-center">
-                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                    <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">We have few team members</a></div>
-                </div>
-
-                <div class="ml-12">
-                    <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm p-4 font-serif leading-6">
-                    As we all know the politician are after your number in the the group which will determine the posibility of the winning or losing the election, there for your number in the group will determine how likely your group will draw the attention of the politicians. There for advice to have atleast 20 to above members  
-                    <button class="m-4 bg-purple-800 py-2 px-4 text-purple-100 text-sm rounded-lg border-l-8 border-purple-500">
-                            Add More team Members
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- senatorial zone start -->
-        <div class="container m-8 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-            @foreach($senatorialZones as $senatorialZone)
-            <div class="bg-white rounded-lg border-12 m-4 shadow-lg border-purple-700 border-l-4">
-                <div class="flex items-center">
-                    <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">{{$senatorialZone->name}}</a></div>
-                </div>
-                <div class="ml-12">
-                    <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm p-4 font-serif leading-6">
-                        <table class="table-fixed w-full">
-                            
-                            <tbody>
-                            <tr class="text-left">
-                                <td>Local Government</td><td>{{count($senatorialZone->senatorialZoneLgas)}}</td>
-                            </tr><tr class="text-left">
-                                <td>Wards</td><td>{{$senatorialZone->wards}}</td>
-                            </tr><tr class="text-left">
-                                <td>Polling Units</td><td>{{$senatorialZone->polling_units}}</td>
-                            </tr><tr class="text-left">
-                                <td>Teams</td><td>{{$senatorialZone->teams}}</td>
-                            </tr><tr class="text-left">    
-                                <td>Members</td><td>{{$senatorialZone->members}}</td>
-                            </tr>
-                            
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
+        @livewire('welcome.senatorial-zone',['senatorialZones'=>$senatorialZones])
         <!-- senatorial zone end -->
         
         </main>
         <footer>
-        
             <div class="flex justify-center mt-4 sm:items-center sm:justify-between bg-gray-900">
                 <div class=" text-center text-sm text-white p-4 sm:text-right border border-b-8 border-black">
-                <!-- statefederal constituency -->
                 
-                <div class="ml-12">
-                    <div class="mt-2 text-purple-100 dark:text-gray-400 text-sm p-4 font-serif leading-6">
-                   <table class="table-fixed w-full leading-6">
-                        <thead>
-                            <tr class="w-full text-left uppercase border-b-4 border-purple-300">
-                                <th class="w-1/12">S/N</th>
-                                <th class="w-1/6">Federal Constituency</th>
-                                <th class="w-1/6">Lgas</th>
-                                <th class="w-1/6">Wards</th>
-                                <th class="w-1/6">Polling Unit</th>
-                                <th class="w-1/6">Teams</th>
-                                <th class="w-1/6">Registered Users</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($federalConstituencies as $federalConstituency)
-                            <tr class="text-left ">
-                                <td>{{$loop->iteration}}</td>
-                                <td class="w-1/4">{{$federalConstituency->name}}</td>
-                                <td>{{count($federalConstituency->federalConstituencyLgas)}}</td>
-                                <td>{{$federalConstituency->wards}}</td>
-                                <td>{{$federalConstituency->polling_units}}</td>
-                                <td>{{$federalConstituency->teams}}</td>
-                                <td>{{$federalConstituency->members}}</td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                </div>
+                <!-- federal constituency -->
+                @livewire('welcome.footer.federal-constituency',['federalConstituencies'=>$federalConstituencies])
                 <!-- federal constituency -->
 
+                <!-- state constituency start -->
+                 @livewire('welcome.footer.state-constituency',['stateConstituencies'=>$stateConstituencies])
+                <!-- state constituency end -->
 
-
-            
-            <div class="">
-                <div class="ml-12">
-                    <div class="mt-2 text-purple-100 dark:text-gray-400 text-sm p-4 font-serif leading-6">
-                        <table class="table-fixed">
-                            <thead>
-                                <tr class="text-left uppercase border-b-4 border-purple-300">
-                                    <th class="w-1/12">S/N</th>
-                                    <th class="w-1/6">State Constituencies</th>
-                                    <th class="w-1/6">Wards</th>
-                                    <th class="w-1/6">Polling UNITS</th>
-                                    <th class="w-1/6">Member Teams</th>
-                                    <th class="w-1/6">Registered Members</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($stateConstituencies as $stateConstituency)
-                            <tr class="text-left">
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{$stateConstituency->name}}</td>
-                                <td>{{count($stateConstituency->stateConstituencyWards)}}</td>
-                                <td>{{$stateConstituency->polling_units}}</td>
-                                <td>{{$stateConstituency->teams}}</td>
-                                <td>{{$stateConstituency->members}}</td>
-                            </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            
-        
-                    All right reserved @ {{config('app.name')}} {{date('Y')}}
+                All right reserved @ {{config('app.name')}} {{date('Y')}}
                 </div>
             </div>
         </footer>

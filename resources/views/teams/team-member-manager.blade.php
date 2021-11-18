@@ -23,7 +23,14 @@
                     <!-- Member Email -->
                     <div class="col-span-6 sm:col-span-4">
                         <x-jet-label for="phone" value="{{ __('Phone') }}" />
-                        <x-jet-input id="phone" type="text" class="mt-1 block w-full" wire:model.defer="addTeamMemberForm.email" />
+                        <select id="phone" type="text" class="block mt-1 w-full border-purple-500 focus:border-purple-800 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" wire:model.defer="addTeamMemberForm.email" >
+                            <option value="">Choose Phone to Send team invitation</option>
+                            @foreach(Auth::user()->pollingUnit->users as $member)
+                                @if($member->id != Auth::user()->id)
+                                <option value="{{$member->phone}}">{{$member->phone}}</option>
+                                @endif
+                            @endforeach
+                        <select/>
                         <x-jet-input-error for="phone" class="mt-2" />
                     </div>
 
@@ -63,11 +70,11 @@
 
                 <x-slot name="actions">
                     <x-jet-action-message class="mr-3" on="saved">
-                        {{ __('Added.') }}
+                        {{ __('Member invited succesfully.') }}
                     </x-jet-action-message>
 
                     <x-jet-button>
-                        {{ __('Add') }}
+                        {{ __('Send Team Invitation') }}
                     </x-jet-button>
                 </x-slot>
             </x-jet-form-section>

@@ -82,7 +82,7 @@ class User extends Authenticatable
     public function invitations()
     {
         $invitations = [];
-        foreach(TeamInvitation::where('phone',$this->phone)->get() as $invitation){
+        foreach(TeamInvitation::where(['phone'=>$this->phone,'status'=>'pending'])->get() as $invitation){
             $invitations[] = $invitation;
         }
         return $invitations;

@@ -88,20 +88,7 @@
                                 <div class="bg-purple-800 h-auto w-auto p-2 rounded-full text-purple-100 text-center">{{count($invitation->team->teamUsers)}}</div>
                             </div>
 
-                            <div class="flex items-center justify-center">
-                                
-                                <div class="flex">
-                                    <!-- accept the invitaion -->
-                                    <a href="{{route('team-invitations.accept',[$invitation->id])}}"><x-jet-button class="ml-4">
-                                        {{ __('Accept Invitation') }}
-                                    </x-jet-button>
-                                    </a>
-                                    <x-jet-danger-button class="ml-4">
-                                        {{ __('Reject Invitation') }}
-                                    </x-jet-button>
-                                </div>
-                                </div>
-                            </div>
+                            @livewire('team.invitation',['invitation'=>$invitation])
                         </div>
                         @endforeach
                     </div>
