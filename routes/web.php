@@ -18,10 +18,10 @@ use App\Models\StateConstituency;
 |
 */
 Route::get('/teams' , function(){
-     dd(app(AddsTeamMembers::class));
+    return view('social');
 });
 Route::get('/', function () {
-    return view('welcome',['stateConstituencies'=>StateConstituency::all(),'federalConstituencies'=>FederalConstituency::all(),'senatorialZones'=>SenatorialZone::all()]);
+    return view('brand',['stateConstituencies'=>StateConstituency::all(),'federalConstituencies'=>FederalConstituency::all(),'senatorialZones'=>SenatorialZone::all()]);
 })->name('welcome');
 
 Route::prefix('ajax')

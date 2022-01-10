@@ -79,14 +79,15 @@ class User extends Authenticatable
         return $flag;
     }
 
-    public function invitations()
+    public function teamInvitations($status)
     {
         $invitations = [];
-        foreach(TeamInvitation::where(['phone'=>$this->phone,'status'=>'pending'])->get() as $invitation){
+        foreach(TeamInvitation::where(['phone'=>$this->phone,'status'=>$status])->get() as $invitation){
             $invitations[] = $invitation;
         }
         return $invitations;
     }
+   
 
     public function createTeam()
     {
